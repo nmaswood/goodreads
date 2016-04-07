@@ -75,11 +75,11 @@ class GoodReads():
 				data = {k : root.find(k).text for k in categories}
 				data['authors'] = [{"name":k.find("name").text, "id": k.find("id").text} for k in root.find('authors')]
 				self.db[to].insert(data)
-				
+
 				print(data['title'])
 				sleep(1)
 		get_urls(["L_SRC", "L_BOOKS"])
-		get_ursl(["R_SRC", "to" : "R_BOOKS"])
+		get_ursl(["R_SRC", "R_BOOKS"])
 
 if __name__ == "__main__":
 	g = GoodReads()
