@@ -59,7 +59,7 @@ class GoodReads():
 				if l not in [10,13]:
 
 					if l < 10: 
-						while len(init_isbn) < 10 :
+						while len(isbn) < 10 :
 							isbn = "0" + isbn
 					else:
 						while len(isbn) != 13:
