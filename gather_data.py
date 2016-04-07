@@ -9,8 +9,8 @@ class GoodReads():
 	def __init__(self):
 
 		self.key = 'uUFRZBYoKnyQcFbi0v5CMA'
-		self.fp1 = {"path" :'c.csv', "db" : "CONSERVATIVE"}
-		self.fp2 = {"path" : 'l.csv', "db" : "LIBERAL"}
+		self.fp1 = {"path" :'c.csv', "db" : "C_SRC"}
+		self.fp2 = {"path" : 'l.csv', "db" : "L_SRC"}
 		self.client = MongoClient('localhost', 27017)
 		self.db = self.client['GOODREADS']
 		self.url = 'https://www.goodreads.com/book/isbn/{isbn}?key=uUFRZBYoKnyQcFbi0v5CMA'
@@ -47,41 +47,39 @@ class GoodReads():
 
 	def get_book_urls(self):
 
-		def get_urls(collection):
+		def get_urls(_input):
 
-			isbn_mongo = self.db[collection].find()
+			_from, to = _input
 
-			for unit in isbn_mongo:
+			for unit in self.db[_from].find():
 
-				init_isbn = unit["isbn"]
+				isbn = unit["isbn"]
+				l = len(isbn)
 
-				isbn = "0" + init_isbn if len(init_isbn) in [9,12] else init_isbn
+				if l not in [10,13]:
+
+					if l < 10: 
+						while len(init_isbn) < 10 :
+							isbn = "0" + isbn
+					else:
+						while len(isbn) != 13:
+							isbn = "0" + isbn
 
 				url = self.url.format(isbn=isbn)
 				print (url)
 
 				result = requests.get(url, headers = self.headers)
-				sleep(1)
 				root   = ET.fromstring(result.text).find('book')
 				categories = ['description', 'url', 'id', 'title', 'isbn', 'isbn13','average_rating','publication_year']
 
-				authors = root.find('authors')
-
-				author_list = []
-
-				for k in authors:
-					name = k.find('name').text
-					_id  = k.find('id').text
-					author_list.append({"name": name, "id" : _id})
-
-
 				data = {k : root.find(k).text for k in categories}
-				data["authors"] = author_list
-				self.db[collection].insert(data)
+				data['authors'] = [{"name":k.find("name").text, "id": k.find("id").text} for k in root.find('authors')]
+				self.db[to].insert(data)
+				
 				print(data['title'])
-
-		get_urls("LIBERAL")
-		get_ursl("CONSERVATIVE")
+				sleep(1)
+		get_urls(["L_SRC", "L_BOOKS"])
+		get_ursl(["R_SRC", "to" : "R_BOOKS"])
 
 if __name__ == "__main__":
 	g = GoodReads()
