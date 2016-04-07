@@ -69,19 +69,22 @@ class GoodReads():
 				print (url)
 
 				result = requests.get(url, headers = self.headers)
-				if result.status_code == 200:
+				try:
+					if result.status_code == 200:
 
-					root   = ET.fromstring(result.text).find('book')
-					categories = ['description', 'url', 'id', 'title', 'isbn', 'isbn13','average_rating','publication_year']
+						root   = ET.fromstring(result.text).find('book')
+						categories = ['description', 'url', 'id', 'title', 'isbn', 'isbn13','average_rating','publication_year']
 
-					data = {k : root.find(k).text for k in categories}
-					data['authors'] = [{"name":k.find("name").text, "id": k.find("id").text} for k in root.find('authors')]
-					self.db[to].insert(data)
+						data = {k : root.find(k).text for k in categories}
+						data['authors'] = [{"name":k.find("name").text, "id": k.find("id").text} for k in root.find('authors')]
+						self.db[to].insert(data)
 
-					print(data['title'])
-				else:
-					print (result.status_code, url)
-				sleep(1)
+						print(data['title'])
+					else:
+						print (result.status_code, url)
+					sleep(1)
+				except:
+					print ("broke at", url)
 		#get_urls(["L_SRC", "L_BOOKS"])
 		get_urls(["C_SRC", "C_BOOKS"])
 
