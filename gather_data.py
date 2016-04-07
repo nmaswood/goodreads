@@ -82,8 +82,8 @@ class GoodReads():
 				else:
 					print (result.status_code, url)
 				sleep(1)
-		get_urls(["L_SRC", "L_BOOKS"])
-		get_ursl(["C_SRC", "C_BOOKS"])
+		#get_urls(["L_SRC", "L_BOOKS"])
+		get_urls(["C_SRC", "C_BOOKS"])
 
 if __name__ == "__main__":
 	g = GoodReads()
