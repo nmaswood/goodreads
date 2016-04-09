@@ -114,10 +114,10 @@ class GoodReads():
 			return (status, next_page)
 
 
-		def extract_reviews(html):
+		def extract_reviews(html,db_name):
 
 
-			def extract(review_body, obj):
+			def extract(review_body, obj,db_name):
 
 				selector_url   = obj['selector_url']
 				selector_rating = obj['selector_rating']
@@ -128,7 +128,7 @@ class GoodReads():
 				url    = None if not url else url[0].get("href")
 				rating = None if not rating else rating[0].get("title")
 
-				print (url, rating)
+				print (url, rating, db_name)
 
 
 				data = {
@@ -136,11 +136,11 @@ class GoodReads():
 				"rating"   : rating
 				}
 
-				self.db["RATINGS"].insert(data)
+				self.db[db_name].insert(data)
 
 				return data
 
-			def reviewed(review_body):
+			def reviewed(review_body, db_name):
 
 				obj = {
 
@@ -148,9 +148,9 @@ class GoodReads():
 				"selector_rating" : "span.staticStars > span"
 				}
 
-				return extract(review_body, obj)
+				return extract(review_body, obj, db_name)
 
-			def main(html):
+			def main(html, db_name):
 
 				bs_obj  = BeautifulSoup(html, 'lxml')
 				review_bodies = bs_obj.select("#bookReviews > div.friendReviews.elementListBrown > div.section > div.review > div.left.bodycol > div.reviewHeader.uitext.stacked")
@@ -160,13 +160,15 @@ class GoodReads():
 
 					return {
 					"status" : "OK",
-					"data"   : list(map(reviewed, review_bodies))
+					"data"   : list(map(lambda x: reviewed(x, db_name), review_bodies))
 
 					}
 
-			return main(html)
+			return main(html,db_name)
 
-		def get_page(url):
+		def get_page(url,db_name_books):
+
+			db_name = db_name_books + "_RATINGS"
 
 			driver = webdriver.Chrome()
 
@@ -174,7 +176,7 @@ class GoodReads():
 			status, next_page = get_next_page(driver)
 			i = 0
 			source  = driver.page_source
-			reviews = extract_reviews(source)
+			reviews = extract_reviews(source, db_name)
 
 			while status == "OK" and i < self.ITER_LIMIT:
 
@@ -182,16 +184,7 @@ class GoodReads():
 				wait = WebDriverWait(driver, self.AJAX_LIMIT)
 				sleep(5)
 				source  = driver.page_source
-				reviews = extract_reviews(source)
-
-
-				"""
-				self.db["BOOKREVIEWS"].insert({
-					"html" : reviews,
-					"url"  : url,
-					"iter" : i
-					})
-					"""
+				reviews = extract_reviews(source,db_name)
 
 				status, next_page = get_next_page(driver)
 				i +=1
@@ -200,9 +193,9 @@ class GoodReads():
 
 			driver.close()
 
-		for db_name in ["L_BOOKS", "C_BOOKS"]:
-			for link in self.db[db_name].find():
-				get_page(link["url"])
+		for db_name_books in ["L_BOOKS", "C_BOOKS"]:
+			for link in self.db[db_name_books].find():
+				get_page(link["url"], db_name_books)
 
 if __name__ == "__main__":
 	g = GoodReads()
