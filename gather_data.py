@@ -3,6 +3,10 @@ from pymongo import MongoClient
 import requests
 from time import sleep
 import xml.etree.ElementTree as ET
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from bs4 import BeautifulSoup
+
 
 class GoodReads():
 
@@ -24,6 +28,9 @@ class GoodReads():
 		'Connection': 'keep-alive',
 		'Cache-Control': 'max-age=0'
 		}
+		self.AJAX_LIMIT    = 15
+		self.REQUEST_LIMIT = 1.5
+		self.ITER_LIMIT    = 100
 
 	def csv_to_mongo(self):
 
@@ -85,10 +92,120 @@ class GoodReads():
 					sleep(1)
 				except:
 					print ("broke at", url)
-		#get_urls(["L_SRC", "L_BOOKS"])
+		get_urls(["L_SRC", "L_BOOKS"])
 		get_urls(["C_SRC", "C_BOOKS"])
+
+	def get_users(self):
+
+		def get_next_page(driver):
+
+			next_page = None
+			status    = "DNE"
+
+			try:	
+				print ("1")
+				next_selector = '#reviews > div.uitext > div > a.next_page'
+				next_page = driver.find_element_by_css_selector(next_selector)
+				classes   = next_page.get_attribute("class")
+				status = "END" if 'disabled' in classes else "OK"
+			except:
+				print("2")
+
+			return (status, next_page)
+
+
+		def extract_reviews(html):
+
+
+			def extract(review_body, obj):
+
+				selector_url   = obj['selector_url']
+				selector_rating = obj['selector_rating']
+
+				url    = review_body.select(selector_url)
+				rating = review_body.select(selector_rating)
+
+				url    = None if not url else url[0].get("href")
+				rating = None if not rating else rating[0].get("title")
+
+				print (url, rating)
+
+
+				data = {
+				"user_url" : url,
+				"rating"   : rating
+				}
+
+				self.db["RATINGS"].insert(data)
+
+				return data
+
+			def reviewed(review_body):
+
+				obj = {
+
+				"selector_url" : "a.user" ,
+				"selector_rating" : "span.staticStars > span"
+				}
+
+				return extract(review_body, obj)
+
+			def main(html):
+
+				bs_obj  = BeautifulSoup(html, 'lxml')
+				review_bodies = bs_obj.select("#bookReviews > div.friendReviews.elementListBrown > div.section > div.review > div.left.bodycol > div.reviewHeader.uitext.stacked")
+				if not review_bodies:
+					return {"status" : "BAD", "data" : None}
+				else:
+
+					return {
+					"status" : "OK",
+					"data"   : list(map(reviewed, review_bodies))
+
+					}
+
+			return main(html)
+
+		def get_page(url):
+
+			driver = webdriver.Chrome()
+
+			driver.get(url)
+			status, next_page = get_next_page(driver)
+			i = 0
+			source  = driver.page_source
+			reviews = extract_reviews(source)
+
+			while status == "OK" and i < self.ITER_LIMIT:
+
+				next_page.click()
+				wait = WebDriverWait(driver, self.AJAX_LIMIT)
+				sleep(5)
+				source  = driver.page_source
+				reviews = extract_reviews(source)
+
+
+				"""
+				self.db["BOOKREVIEWS"].insert({
+					"html" : reviews,
+					"url"  : url,
+					"iter" : i
+					})
+					"""
+
+				status, next_page = get_next_page(driver)
+				i +=1
+				print ("3")
+				print (status)
+
+			driver.close()
+
+		for db_name in ["L_BOOKS", "C_BOOKS"]:
+			for link in self.db[db_name].find():
+				get_page(link["url"])
 
 if __name__ == "__main__":
 	g = GoodReads()
-	g.csv_to_mongo()
-	g.get_book_urls()
+	#g.csv_to_mongo()
+	#g.get_book_urls()
+	g.get_users()
