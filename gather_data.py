@@ -196,6 +196,7 @@ class GoodReads():
 					print (status)
 				except:
 					print ("page not accessible")
+					break
 
 			driver.close()
 
