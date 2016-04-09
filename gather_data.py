@@ -161,7 +161,6 @@ class GoodReads():
 					return {
 					"status" : "OK",
 					"data"   : list(map(lambda x: reviewed(x, db_name), review_bodies))
-
 					}
 
 			return main(html,db_name)
@@ -172,24 +171,31 @@ class GoodReads():
 
 			driver = webdriver.Chrome()
 
-			driver.get(url)
-			status, next_page = get_next_page(driver)
-			i = 0
-			source  = driver.page_source
-			reviews = extract_reviews(source, db_name)
+			try:
+				driver.get(url)
+				status, next_page = get_next_page(driver)
+				i = 0
+				source  = driver.page_source
+				reviews = extract_reviews(source, db_name)
+			except:
+				print ("page not accessible broke asap")
+				driver.close()
+				return
 
 			while status == "OK" and i < self.ITER_LIMIT:
+				try:
+					next_page.click()
+					wait = WebDriverWait(driver, self.AJAX_LIMIT)
+					sleep(4)
+					source  = driver.page_source
+					reviews = extract_reviews(source,db_name)
 
-				next_page.click()
-				wait = WebDriverWait(driver, self.AJAX_LIMIT)
-				sleep(4)
-				source  = driver.page_source
-				reviews = extract_reviews(source,db_name)
-
-				status, next_page = get_next_page(driver)
-				i +=1
-				print ("3")
-				print (status)
+					status, next_page = get_next_page(driver)
+					i +=1
+					print ("3")
+					print (status)
+				except:
+					print ("page not accessible")
 
 			driver.close()
 
