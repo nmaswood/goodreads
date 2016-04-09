@@ -182,7 +182,7 @@ class GoodReads():
 
 				next_page.click()
 				wait = WebDriverWait(driver, self.AJAX_LIMIT)
-				sleep(5)
+				sleep(4)
 				source  = driver.page_source
 				reviews = extract_reviews(source,db_name)
 
@@ -194,7 +194,7 @@ class GoodReads():
 			driver.close()
 
 		for db_name_books in ["L_BOOKS", "C_BOOKS"]:
-			for link in self.db[db_name_books].find():
+			for link in self.db[db_name_books].find(no_cursor_timeout=True):
 				get_page(link["url"], db_name_books)
 
 if __name__ == "__main__":
