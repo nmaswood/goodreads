@@ -6,6 +6,9 @@ import xml.etree.ElementTree as ET
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from bs4 import BeautifulSoup
+import pprint
+from sys import exit
+from math import ceil
 
 
 class GoodReads():
@@ -28,6 +31,14 @@ class GoodReads():
 		'Connection': 'keep-alive',
 		'Cache-Control': 'max-age=0'
 		}
+
+		self.headers2 = {
+		'Accept' : 'text/javascript, text/html, application/xml, text/xml, */*',
+		'Connection': 'keep-alive',
+		'Cache-Control' : "max-age=0",
+		'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36',
+		}
+
 		self.AJAX_LIMIT    = 15
 		self.REQUEST_LIMIT = 1.5
 		self.ITER_LIMIT    = 100
@@ -204,8 +215,142 @@ class GoodReads():
 			for link in self.db[db_name_books].find(no_cursor_timeout=True):
 				get_page(link["url"], db_name_books)
 
+	def get_read_books(self):
+
+		def positive_rating(rating):
+
+			return rating in ["it was amazing", "really liked it", "liked it"]
+
+		def infinite_urls(url,iter_num):
+			print(url, iter_num)
+
+			generic = "https://www.goodreads.com/review/list/{id}?page={iter_num}&per_page=infinite&shelf=read&utf8=%E2%9C%93"
+			unique_id = url.split("/show/")[-1]
+			unique_id_p = unique_id.split("-")[0] if "-" in unique_id else unique_id
+
+			return generic.format(id = unique_id_p, iter_num = iter_num)
+
+		def iter_limit(html):
+
+			bs_obj = BeautifulSoup(html, "lxml")
+
+			no_content_selector = "#rightCol > div.greyText.nocontent.stacked"
+			no_content = bs_obj.select(no_content_selector)
+
+			if no_content != []:
+				if 'No matching items' in nocontent:
+					return 0
+			else:
+				infinite_status = bs_obj.select("#infiniteStatus")[0].contents[0]
+				remove_first_number = infinite_status.split("of ")[-1]
+				limit = remove_first_number.split(" loaded")[0]
+
+			num_pages = lambda x: ceil(int(x)/30)
+			return num_pages(limit)
+
+		def parse_page(html, url_name, db_name):
+
+
+			def extract_one(book, type_name):
+
+				query = book.select("td.field.{type_name} > div.value".format(type_name = type_name))
+
+				if query != []:
+					c = query[0].contents
+					if c != []:
+						return c[0].strip()
+
+				return None
+
+
+			bs_obj = BeautifulSoup(html, "lxml")
+			books  = bs_obj.select("#booksBody > tr")
+
+			for book in books:
+
+				author_unit = book.select('td.field.author > div.value > a')
+				title_unit  = book.select("td.field.title > div.value > a")
+
+				group_one = [
+				"avg_rating",
+				"num_ratings",
+				"isbn",
+				"isbn13",
+				"date_pub_edition",
+				"date_pub",
+				"date_started",
+				"purchase_location",
+				"date_purchased"]
+
+				partial = lambda key : extract_one(book,key)
+
+				data = {k : partial(k) for k in group_one}
+
+				functions = {
+
+				"author"     : (author_unit, lambda x: x[0].contents),
+				"author_url" : (author_unit, lambda x: x[0].get("href")),
+				"book_name"  : (title_unit, lambda  x: x[0].get("title")),
+				"book_url"   : (title_unit, lambda  x: x[0].get("href")),
+				"rating"     : (book.select("td.field.rating > div.value > span.staticStars > span.staticStar"), lambda x: x[0].get("title")),
+				"num_pages"  : (book.select("td.field.num_pages > div.value > nobr"), lambda x: x[0].contents[0].strip()),
+				"votes"      : (book.select("td.field.votes > div.value > a"), lambda x: x[0].contents[0]),
+				"date_read"  : (book.select("td.date_read > div.value > span"), lambda x : x[0].contents[0].strip())
+
+				}
+
+				for key, value in functions.items():
+
+					_input, func = value
+					if _input:
+						data[key] = func(_input)
+
+				pp = pprint.PrettyPrinter(indent=4)
+				pp.pprint(data)
+
+				data["url"] = url_name
+
+				self.db[db_name].insert(data)
+
+		def main(rating, book_url, db_rating_name):
+
+			db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
+
+			if rating and book_url:
+
+				if positive_rating(rating):
+
+					i    = 1
+					url  = infinite_urls(book_url, i)
+
+					res = requests.get(url, headers = self.headers2)
+					sleep(self.REQUEST_LIMIT)
+
+					if res.status_code != 200:
+						print ("fuck me", status_code)
+					else:
+						html = res.text
+						limit = iter_limit(html)
+						if limit != 0:
+							parse_page(html,url, db_name)
+							limit-=1; i+=1;
+							while limit != 0:
+								url  = infinite_urls(book_url, i)
+								res = requests.get(url, headers = self.headers2)
+								sleep(self.REQUEST_LIMIT)
+								html = res.text
+								parse_page(html,url,db_name)
+								limit -= 1; i+=1
+
+
+		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
+			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
+				main(x["rating"], x["user_url"], db_rating_name)
+
+
 if __name__ == "__main__":
 	g = GoodReads()
 	#g.csv_to_mongo()
 	#g.get_book_urls()
-	g.get_users()
+	#g.get_users()
+	g.get_read_books()
