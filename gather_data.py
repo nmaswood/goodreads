@@ -238,7 +238,7 @@ class GoodReads():
 			no_content = bs_obj.select(no_content_selector)
 
 			if no_content != []:
-				if 'No matching items' in nocontent:
+				if 'No matching items' in no_content:
 					return 0
 			else:
 				try:
