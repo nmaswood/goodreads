@@ -330,6 +330,7 @@ class GoodReads():
 						print ("fuck me", status_code)
 					else:
 						html = res.text
+						print (url)
 						limit = iter_limit(html)
 						if limit != 0:
 							parse_page(html,url, db_name)
