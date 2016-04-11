@@ -241,7 +241,10 @@ class GoodReads():
 				if 'No matching items' in nocontent:
 					return 0
 			else:
-				infinite_status = bs_obj.select("#infiniteStatus")[0].contents[0]
+				try:
+					infinite_status = bs_obj.select("#infiniteStatus")[0].contents[0]
+				except:
+					return 0
 				remove_first_number = infinite_status.split("of ")[-1]
 				limit = remove_first_number.split(" loaded")[0]
 
