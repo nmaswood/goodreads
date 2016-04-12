@@ -343,7 +343,7 @@ class GoodReads():
 					elif code in [504, "504", 404, "404"]:
 						print (code)
 						return
-						
+
 					html = res.text
 					print (url)
 					limit = iter_limit(html)
@@ -363,7 +363,13 @@ class GoodReads():
 			self.ITER = 0
 			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
 
-				main(x["rating"], x["user_url"], db_rating_name)
+				db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
+				if db[db_name].findOne({"ITER" : self.ITER}, no_cursor_timeout=True):
+					print ("NON-UNIQUE ENTRY")
+					print (self.ITER)
+					self.ITER += 1
+				else:
+					main(x["rating"], x["user_url"], db_rating_name)
 
 
 if __name__ == "__main__":
