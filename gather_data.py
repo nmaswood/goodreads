@@ -318,7 +318,6 @@ class GoodReads():
 
 				data["url"] = url_name
 				data["ITER"] = self.ITER
-				self.ITER +=  1
 
 				self.db[db_name].insert(data)
 
@@ -362,20 +361,19 @@ class GoodReads():
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
 			self.ITER = 0
+			
 			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
 
 				db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
 				entry = self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True)
-				print (entry)
 
-				"""
-				if self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True) == None:
+				if entry == None:
+					main(x["rating"], x["user_url"], db_rating_name)
+				else:
 					print ("NON-UNIQUE ENTRY")
 					print (self.ITER)
-					self.ITER += 1
-				else:
-					main(x["rating"], x["user_url"], db_rating_name)
-				"""
+
+				self.ITER += 1
 
 
 if __name__ == "__main__":
