@@ -1,4 +1,4 @@
-import csv
+jimport csv
 from pymongo import MongoClient
 import requests
 from time import sleep
@@ -42,7 +42,7 @@ class GoodReads():
 		self.AJAX_LIMIT    = 15
 		self.REQUEST_LIMIT = 5
 		self.ITER_LIMIT    = 100
-		self.GOODNIGHT = 28800
+		self.GOODNIGHT = 14400
 		self.ITER = 0
 
 	def csv_to_mongo(self):
@@ -368,7 +368,9 @@ class GoodReads():
 				if entry == None:
 					try:
 						main(x["rating"], x["user_url"], db_rating_name)
-					except:
+					except Exception as e:
+						print (e)
+						print ("Went to sleep")
 						sleep(self.GOODNIGHT)
 				else:
 					print ("NON-UNIQUE ENTRY")
@@ -382,5 +384,5 @@ if __name__ == "__main__":
 	#g.csv_to_mongo()
 	#g.get_book_urls()
 	#g.get_users()
-	sleep(28800)
+	sleep(4)
 	g.get_read_books()
