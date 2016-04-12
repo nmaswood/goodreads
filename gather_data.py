@@ -42,6 +42,7 @@ class GoodReads():
 		self.AJAX_LIMIT    = 15
 		self.REQUEST_LIMIT = 1.5
 		self.ITER_LIMIT    = 100
+		self.ITER = 0
 
 	def csv_to_mongo(self):
 
@@ -249,7 +250,11 @@ class GoodReads():
 				limit = remove_first_number.split(" loaded")[0]
 
 			num_pages = lambda x: ceil(int(x)/30)
-			return num_pages(limit)
+
+			try:
+				return num_pages(limit)
+			except:
+				return 0
 
 		def parse_page(html, url_name, db_name):
 
@@ -312,6 +317,8 @@ class GoodReads():
 				pp.pprint(data)
 
 				data["url"] = url_name
+				data["ITER"] = self.ITER
+				self.ITER +=  1
 
 				self.db[db_name].insert(data)
 
@@ -348,7 +355,9 @@ class GoodReads():
 
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
+			self.ITER = 0
 			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
+
 				main(x["rating"], x["user_url"], db_rating_name)
 
 
