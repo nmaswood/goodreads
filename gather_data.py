@@ -1,4 +1,4 @@
-jimport csv
+import csv
 from pymongo import MongoClient
 import requests
 from time import sleep
