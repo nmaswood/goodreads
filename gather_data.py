@@ -382,5 +382,5 @@ if __name__ == "__main__":
 	#g.csv_to_mongo()
 	#g.get_book_urls()
 	#g.get_users()
-	sleep(self.GOODNIGHT)
+	sleep(28800)
 	g.get_read_books()
