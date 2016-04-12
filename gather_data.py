@@ -40,8 +40,9 @@ class GoodReads():
 		}
 
 		self.AJAX_LIMIT    = 15
-		self.REQUEST_LIMIT = 1.5
+		self.REQUEST_LIMIT = 5
 		self.ITER_LIMIT    = 100
+		self.GOODNIGHT = 28800
 		self.ITER = 0
 
 	def csv_to_mongo(self):
@@ -337,10 +338,7 @@ class GoodReads():
 
 					code = res.status_code
 
-					if code in  [104,"104"] :
-						sleep(3600)
-						res = requests.get(url, headers = self.headers2)
-					elif code in [504, "504", 404, "404"]:
+					if code in [504, "504", 404, "404"]:
 						print (code)
 						return
 
@@ -361,14 +359,17 @@ class GoodReads():
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
 			self.ITER = 0
-			
+
 			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
 
 				db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
 				entry = self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True)
 
 				if entry == None:
-					main(x["rating"], x["user_url"], db_rating_name)
+					try:
+						main(x["rating"], x["user_url"], db_rating_name)
+					except:
+						sleep(self.GOODNIGHT)
 				else:
 					print ("NON-UNIQUE ENTRY")
 					print (self.ITER)
@@ -381,4 +382,5 @@ if __name__ == "__main__":
 	#g.csv_to_mongo()
 	#g.get_book_urls()
 	#g.get_users()
+	sleep(self.GOODNIGHT)
 	g.get_read_books()
