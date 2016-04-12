@@ -339,7 +339,8 @@ class GoodReads():
 					code = res.status_code
 
 					if code in  [104,"104"] :
-						sleep(1800)
+						sleep(3600)
+						res = requests.get(url, headers = self.headers2)
 					elif code in [504, "504", 404, "404"]:
 						print (code)
 						return
