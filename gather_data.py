@@ -336,22 +336,27 @@ class GoodReads():
 					res = requests.get(url, headers = self.headers2)
 					sleep(self.REQUEST_LIMIT)
 
-					if res.status_code != 200:
-						print ("fuck me", status_code)
-					else:
-						html = res.text
-						print (url)
-						limit = iter_limit(html)
-						if limit != 0:
-							parse_page(html,url, db_name)
-							limit-=1; i+=1;
-							while limit != 0:
-								url  = infinite_urls(book_url, i)
-								res = requests.get(url, headers = self.headers2)
-								sleep(self.REQUEST_LIMIT)
-								html = res.text
-								parse_page(html,url,db_name)
-								limit -= 1; i+=1
+					code = res.status_code
+
+					if code in  [104,"104"] :
+						sleep(1800)
+					elif code in [504, "504", 404, "404"]:
+						print (code)
+						return
+						
+					html = res.text
+					print (url)
+					limit = iter_limit(html)
+					if limit != 0:
+						parse_page(html,url, db_name)
+						limit-=1; i+=1;
+						while limit != 0:
+							url  = infinite_urls(book_url, i)
+							res = requests.get(url, headers = self.headers2)
+							sleep(self.REQUEST_LIMIT)
+							html = res.text
+							parse_page(html,url,db_name)
+							limit -= 1; i+=1
 
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
