@@ -42,7 +42,7 @@ class GoodReads():
 		self.AJAX_LIMIT    = 15
 		self.REQUEST_LIMIT = 5
 		self.ITER_LIMIT    = 100
-		self.GOODNIGHT = 14400
+		self.GOODNIGHT = 1800
 		self.ITER = 0
 
 	def csv_to_mongo(self):
