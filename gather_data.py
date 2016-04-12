@@ -366,7 +366,8 @@ class GoodReads():
 
 				db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
 				entry = self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True)
-				
+				print (entry)
+
 				"""
 				if self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True) == None:
 					print ("NON-UNIQUE ENTRY")
