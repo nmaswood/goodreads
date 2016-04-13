@@ -342,7 +342,7 @@ class GoodReads():
 					url  = infinite_urls(book_url, i)
 
 					res = requests.get(url, headers = self.headers2)
-					sleep(self.REQUEST_LIMIT)
+					sleep(self.REQUEST_LIMIT / 2 )
 
 					code = res.status_code
 
@@ -351,8 +351,8 @@ class GoodReads():
 						return
 
 					html = res.text
-					print (url, "limit", limit)
 					limit = iter_limit(html)
+					print (url, "limit", limit)
 					if limit != 0:
 						parse_page(html,url, db_name)
 						limit-=1; i+=1;
