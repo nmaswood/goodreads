@@ -40,7 +40,7 @@ class GoodReads():
 		}
 
 		self.AJAX_LIMIT    = 15
-		self.REQUEST_LIMIT = 5
+		self.REQUEST_LIMIT = 1.5
 		self.ITER_LIMIT    = 100
 		self.GOODNIGHT = 1800
 		self.ITER = 0
@@ -199,7 +199,7 @@ class GoodReads():
 				try:
 					next_page.click()
 					wait = WebDriverWait(driver, self.AJAX_LIMIT)
-					sleep(4)
+					sleep(self.REQUEST_LIMIT)
 					source  = driver.page_source
 					reviews = extract_reviews(source,db_name)
 
@@ -360,7 +360,6 @@ class GoodReads():
 
 			else:
 				self.db[db_name].insert({"book_url": book_url, "error": "Rating_Bookurl", "ITER" : self.ITER})
-
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
 			self.ITER = 0
