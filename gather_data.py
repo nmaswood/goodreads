@@ -103,7 +103,9 @@ class GoodReads():
 					else:
 						print (result.status_code, url)
 					sleep(1)
-				except:
+				except Exception as e:
+					print (e)
+					print ("fucked up")
 					print ("broke at", url)
 		get_urls(["L_SRC", "L_BOOKS"])
 		get_urls(["C_SRC", "C_BOOKS"])
@@ -116,13 +118,14 @@ class GoodReads():
 			status    = "DNE"
 
 			try:	
-				print ("1")
+				print ("going to next page")
 				next_selector = '#reviews > div.uitext > div > a.next_page'
 				next_page = driver.find_element_by_css_selector(next_selector)
 				classes   = next_page.get_attribute("class")
 				status = "END" if 'disabled' in classes else "OK"
-			except:
-				print("2")
+			except Exception as e:
+				print (e)
+				print ("could not progress to next page")
 
 			return (status, next_page)
 
@@ -190,7 +193,10 @@ class GoodReads():
 				i = 0
 				source  = driver.page_source
 				reviews = extract_reviews(source, db_name)
-			except:
+			except Exception as e:
+				print (e)
+				print ("fuck")
+				print ("get_page error")
 				print ("page not accessible broke asap")
 				driver.close()
 				return
@@ -254,7 +260,9 @@ class GoodReads():
 
 			try:
 				return num_pages(limit)
-			except:
+			except Exception as e:
+				print (e)
+				print ("error occured in iter_limit")
 				return 0
 
 		def parse_page(html, url_name, db_name):
@@ -343,7 +351,7 @@ class GoodReads():
 						return
 
 					html = res.text
-					print (url)
+					print (url, "limit", limit)
 					limit = iter_limit(html)
 					if limit != 0:
 						parse_page(html,url, db_name)
@@ -378,6 +386,7 @@ class GoodReads():
 						print ("Went to sleep")
 						sleep(self.GOODNIGHT)
 				else:
+					print (x)
 					print ("NON-UNIQUE ENTRY")
 					print (self.ITER)
 
