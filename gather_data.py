@@ -355,6 +355,11 @@ class GoodReads():
 							html = res.text
 							parse_page(html,url,db_name)
 							limit -= 1; i+=1
+				else:
+					self.db[db_name].insert({"book_url": book_url, "error": "Unfavorable_Rating", "ITER" : self.ITER})
+
+			else:
+				self.db[db_name].insert({"book_url": book_url, "error": "Rating_Bookurl", "ITER" : self.ITER})
 
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
@@ -369,6 +374,7 @@ class GoodReads():
 					try:
 						main(x["rating"], x["user_url"], db_rating_name)
 					except Exception as e:
+						self.db[db_name].insert({"user_url" :x["user_url"], "error": e, "ITER": self.ITER})
 						print (e)
 						print ("Went to sleep")
 						sleep(self.GOODNIGHT)
@@ -378,11 +384,9 @@ class GoodReads():
 
 				self.ITER += 1
 
-
 if __name__ == "__main__":
 	g = GoodReads()
 	#g.csv_to_mongo()
 	#g.get_book_urls()
 	#g.get_users()
-	sleep(4)
 	g.get_read_books()
