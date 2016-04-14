@@ -43,7 +43,16 @@ class GoodReads():
 		self.REQUEST_LIMIT = 1.5
 		self.ITER_LIMIT    = 100
 		self.GOODNIGHT = 1800
-		self.ITER = 0
+		self.READ_BOOKS_DB_DICT = {
+		"L_BOOKS_RATINGS" : "L_BOOKS_FINAL_PRIME",
+		"C_BOOKS_RATINGS" : "C_BOOKS_FINAL_PRIME"
+		}
+
+	def go_to_sleep(self, msg, time):
+
+		msg and print (msg)
+		print ("Sleeping for {time}".format(time=time))
+		sleep(time)
 
 	def csv_to_mongo(self):
 
@@ -226,12 +235,23 @@ class GoodReads():
 
 	def get_read_books(self):
 
-		def positive_rating(rating):
+		def log_object(obj):
+			self.db[self.READ_BOOKS_DB].insert(obj)
 
-			return rating in ["it was amazing", "really liked it", "liked it"]
+		def print_object(obj):
+
+			pprint.PrettyPrinter(indent=4).pprint(obj)
+
+		def positive_rating(rating):
+			## No assumptions made about input, CHECK FOR FALSY
+
+			if rating:
+				return rating in ["it was amazing", "really liked it", "liked it"]
+
+			return False
 
 		def infinite_urls(url,iter_num):
-			print(url, iter_num)
+			## Assumption made that url and iter_num exist
 
 			generic = "https://www.goodreads.com/review/list/{id}?page={iter_num}&per_page=infinite&shelf=read&utf8=%E2%9C%93"
 			unique_id = url.split("/show/")[-1]
@@ -242,33 +262,29 @@ class GoodReads():
 		def iter_limit(html):
 
 			bs_obj = BeautifulSoup(html, "lxml")
-
 			no_content_selector = "#rightCol > div.greyText.nocontent.stacked"
 			no_content = bs_obj.select(no_content_selector)
-			limit = 0
 
-			if no_content != []:
-				if 'No matching items' in no_content:
-					return 0
+			if no_content != [] and 'No matching items' in no_content:
+				print ("FUCK")
+				return 0
 			else:
 				try:
 					infinite_status = bs_obj.select("#infiniteStatus")[0].contents[0]
-				except:
+				except Exception as e:
+					print (e)
+					print ("SHIT")
 					return 0
 				remove_first_number = infinite_status.split("of ")[-1]
 				limit = remove_first_number.split(" loaded")[0]
 
 			num_pages = lambda x: ceil(int(x)/30)
 
-			try:
-				return num_pages(limit)
-			except Exception as e:
-				print (e)
-				print ("error occured in iter_limit")
-				return 0
+			print ("num_pages", num_pages)
 
-		def parse_page(html, url_name, db_name):
+			return num_pages(limit)
 
+		def parse_page(html, referring_url, user_url):
 
 			def extract_one(book, type_name):
 
@@ -280,7 +296,6 @@ class GoodReads():
 						return c[0].strip()
 
 				return None
-
 
 			bs_obj = BeautifulSoup(html, "lxml")
 			books  = bs_obj.select("#booksBody > tr")
@@ -324,86 +339,77 @@ class GoodReads():
 					if _input:
 						data[key] = func(_input)
 
-				pp = pprint.PrettyPrinter(indent=4)
-				pp.pprint(data)
+				data["referring_url"] = referring_url
+				data["user_url"]      = user_url
 
-				data["url"] = url_name
-				data["ITER"] = self.ITER
+				print_object(data)
+				log_object(data)
 
-				self.db[db_name].insert(data)
+		def process_user_url(rating, user_url):
 
-		def main(rating, book_url, db_rating_name):
+			if positive_rating(rating):
 
-			db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
+				i    = 1
+				url  = infinite_urls(user_url, i)
 
-			if rating and book_url:
+				res = requests.get(url, headers = self.headers2)
+				self.go_to_sleep("initial request", self.REQUEST_LIMIT)
 
-				if positive_rating(rating):
+				code = res.status_code
 
-					i    = 1
-					url  = infinite_urls(book_url, i)
+				if int(code) in [504, 404]:
+					print (code, "page not found")
+					return
 
-					res = requests.get(url, headers = self.headers2)
-					sleep(self.REQUEST_LIMIT / 2 )
+				limit = iter_limit(res.text)
 
-					code = res.status_code
+				print (user_url,url,  rating, limit)
 
-					if code in [504, "504", 404, "404"]:
-						print (code)
-						return
+				if limit:
+					parse_page(res.text,url,user_url)
+					limit-=1; i+=1;
+					while limit:
 
-					html = res.text
-					limit = iter_limit(html)
-					print (url, "limit", limit)
-					if limit != 0:
-						parse_page(html,url, db_name)
-						limit-=1; i+=1;
-						while limit != 0:
-							url  = infinite_urls(book_url, i)
-							res = requests.get(url, headers = self.headers2)
-							sleep(self.REQUEST_LIMIT)
-							html = res.text
-							parse_page(html,url,db_name)
-							limit -= 1; i+=1
-				else:
-					self.db[db_name].insert({"book_url": book_url, "error": "Unfavorable_Rating", "ITER" : self.ITER})
-
+						url  = infinite_urls(user_url, i)
+						res = requests.get(url, headers = self.headers2)
+						self.go_to_sleep("request {i} made".format(i=i), self.REQUEST_LIMIT)
+						parse_page(res.text,url, user_url)
+						limit -= 1; i+=1
 			else:
-				self.db[db_name].insert({"book_url": book_url, "error": "Rating_Bookurl", "ITER" : self.ITER})
 
-		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
-			if db_rating_name == "L_BOOKS_RATINGS":
-				self.ITER = 1500
-			else:
-				self.ITER = 0
+				print (user_url, rating)
 
-			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
+		def run():
 
-				db_name = db_rating_name.split("_")[0] + "_BOOKS_FINAL"
-				entry = self.db[db_name].find_one({"ITER" : self.ITER}, no_cursor_timeout=True)
+			for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
 
-				if entry == None:
-					try:
-						main(x["rating"], x["user_url"], db_rating_name)
-					except Exception as e:
-						self.db[db_name].insert({"user_url" :x["user_url"], "error": e, "ITER": self.ITER})
-						print (e)
-						print ("Went to sleep")
-						sleep(self.GOODNIGHT)
-				else:
-					print (x)
-					print ("NON-UNIQUE ENTRY")
-					print (self.ITER)
+				self.READ_BOOKS_DB = self.READ_BOOKS_DB_DICT[db_rating_name]
 
-				self.ITER += 1
+				for x in self.db[db_rating_name].find(no_cursor_timeout=True):
+
+					rating   = x["rating"]
+					user_url = x["user_url"]
+
+					entry = self.db[self.READ_BOOKS_DB].find_one({"user_url": user_url}, no_cursor_timeout=True)
+
+					if entry == None:
+
+						try:
+							process_user_url(rating, user_url)
+						except Exception as e:
+							print (e)
+							self.go_to_sleep(e, self.GOODNIGHT)
+					else:
+						print ("NON-UNIQUE ENTRY", user_url)
+		run()
 
 if __name__ == "__main__":
+
 	g = GoodReads()
-	#g.csv_to_mongo()
-	#g.get_book_urls()
-	#g.get_users()
+
 	try:
 		g.get_read_books()
 	except Exception as e:
 		print (e)
+		sleep(1800)
 		g.get_read_books()
