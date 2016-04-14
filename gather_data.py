@@ -102,6 +102,7 @@ class GoodReads():
 						print(data['title'])
 					else:
 						print (result.status_code, url)
+
 					sleep(1)
 				except Exception as e:
 					print (e)
@@ -244,6 +245,7 @@ class GoodReads():
 
 			no_content_selector = "#rightCol > div.greyText.nocontent.stacked"
 			no_content = bs_obj.select(no_content_selector)
+			limit = 0
 
 			if no_content != []:
 				if 'No matching items' in no_content:
@@ -370,7 +372,10 @@ class GoodReads():
 				self.db[db_name].insert({"book_url": book_url, "error": "Rating_Bookurl", "ITER" : self.ITER})
 
 		for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
-			self.ITER = 0
+			if db_rating_name == "L_BOOKS_RATINGS":
+				self.ITER = 1500
+			else:
+				self.ITER = 0
 
 			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
 
@@ -397,4 +402,8 @@ if __name__ == "__main__":
 	#g.csv_to_mongo()
 	#g.get_book_urls()
 	#g.get_users()
-	g.get_read_books()
+	try:
+		g.get_read_books()
+	except Exception as e:
+		print (e)
+		g.get_read_books()
