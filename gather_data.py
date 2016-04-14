@@ -223,7 +223,8 @@ class GoodReads():
 					i +=1
 					print ("3")
 					print (status)
-				except:
+				except Exception as e:
+					print (e)
 					print ("page not accessible")
 					break
 
