@@ -50,9 +50,17 @@ class GoodReads():
 
 	def go_to_sleep(self, msg, time):
 
-		msg and print (msg)
-		print ("Sleeping for {time}".format(time=time))
-		sleep(time)
+		if msg: print (msg)
+
+		if time > 30:
+			slices = time / 3
+			print ("TOTAL ELAPSED TIME TO FOLLOW")
+			for x in range(3):
+				print ("{x}/ 2: Sleep Duration {time}".format(x = x, time=slices))
+				sleep(slices)
+		else:
+			print ("Sleeping for {time}".format(time=time))
+			sleep(time)
 
 	def csv_to_mongo(self):
 
@@ -117,8 +125,9 @@ class GoodReads():
 					print (e)
 					print ("fucked up")
 					print ("broke at", url)
-		get_urls(["L_SRC", "L_BOOKS"])
-		get_urls(["C_SRC", "C_BOOKS"])
+
+		for x in ["L_SRC", "L_BOOKS"]:
+			get_urls(x)
 
 	def get_users(self):
 
@@ -380,29 +389,29 @@ class GoodReads():
 
 				print (user_url, rating)
 
-		def run():
+		def run(db_rating_name):
 
-			for db_rating_name in ["L_BOOKS_RATINGS", "C_BOOKS_RATINGS"]:
+			self.READ_BOOKS_DB = self.READ_BOOKS_DB_DICT[db_rating_name]
 
-				self.READ_BOOKS_DB = self.READ_BOOKS_DB_DICT[db_rating_name]
+			for x in self.db[db_rating_name].find(no_cursor_timeout=True):
 
-				for x in self.db[db_rating_name].find(no_cursor_timeout=True):
+				rating   = x["rating"]
+				user_url = x["user_url"]
 
-					rating   = x["rating"]
-					user_url = x["user_url"]
+				entry = self.db[self.READ_BOOKS_DB].find_one({"user_url": user_url}, no_cursor_timeout=True)
 
-					entry = self.db[self.READ_BOOKS_DB].find_one({"user_url": user_url}, no_cursor_timeout=True)
+				if entry == None:
 
-					if entry == None:
+					try:
+						process_user_url(rating, user_url)
+					except Exception as e:
+						print (e)
+						self.go_to_sleep(e, self.GOODNIGHT)
+				else:
+					print ("NON-UNIQUE ENTRY", user_url)
 
-						try:
-							process_user_url(rating, user_url)
-						except Exception as e:
-							print (e)
-							self.go_to_sleep(e, self.GOODNIGHT)
-					else:
-						print ("NON-UNIQUE ENTRY", user_url)
-		run()
+		#run("L_BOOKS_RATINGS")
+		run("C_BOOKS_RATINGS")
 
 if __name__ == "__main__":
 
