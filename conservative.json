@@ -4,43 +4,43 @@ connecting to: GOODREADS
 	"result" : [
 		{
 			"_id" : "The Hunger Games (The Hunger Games, #1)",
-			"count" : 2867
+			"count" : 2870
 		},
 		{
 			"_id" : "To Kill a Mockingbird",
-			"count" : 2516
+			"count" : 2518
 		},
 		{
 			"_id" : "1984",
-			"count" : 2367
+			"count" : 2369
 		},
 		{
 			"_id" : "Animal Farm",
-			"count" : 2325
+			"count" : 2327
 		},
 		{
 			"_id" : "The Great Gatsby",
-			"count" : 2217
+			"count" : 2220
 		},
 		{
 			"_id" : "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
-			"count" : 2192
+			"count" : 2194
 		},
 		{
 			"_id" : "The Hobbit",
-			"count" : 2176
+			"count" : 2178
 		},
 		{
 			"_id" : "Catching Fire (The Hunger Games, #2)",
-			"count" : 2099
+			"count" : 2102
 		},
 		{
 			"_id" : "The Da Vinci Code (Robert Langdon, #2)",
-			"count" : 2013
+			"count" : 2014
 		},
 		{
 			"_id" : "Mockingjay (The Hunger Games, #3)",
-			"count" : 2010
+			"count" : 2013
 		},
 		{
 			"_id" : "Killing Lincoln: The Shocking Assassination that Changed America Forever",
@@ -48,7 +48,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Atlas Shrugged",
-			"count" : 1832
+			"count" : 1834
 		},
 		{
 			"_id" : "The Diary of a Young Girl",
@@ -56,7 +56,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Catcher in the Rye",
-			"count" : 1813
+			"count" : 1815
 		},
 		{
 			"_id" : "The Amateur",
@@ -64,11 +64,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Lord of the Flies",
-			"count" : 1688
+			"count" : 1689
 		},
 		{
 			"_id" : "The Girl with the Dragon Tattoo (Millennium, #1)",
-			"count" : 1655
+			"count" : 1656
 		},
 		{
 			"_id" : "Angels & Demons  (Robert Langdon, #1)",
@@ -76,23 +76,23 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Fellowship of the Ring (The Lord of the Rings, #1)",
-			"count" : 1598
+			"count" : 1600
 		},
 		{
 			"_id" : "Fahrenheit 451",
-			"count" : 1572
+			"count" : 1575
 		},
 		{
 			"_id" : "Of Mice and Men",
-			"count" : 1547
+			"count" : 1548
 		},
 		{
 			"_id" : "Unbroken: A World War II Story of Survival, Resilience, and Redemption",
-			"count" : 1543
+			"count" : 1545
 		},
 		{
 			"_id" : "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
-			"count" : 1542
+			"count" : 1544
 		},
 		{
 			"_id" : "Broke : The Plan to Restore our Trust, Truth and Treasure",
@@ -104,39 +104,39 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Harry Potter and the Chamber of Secrets (Harry Potter, #2)",
-			"count" : 1500
+			"count" : 1502
 		},
 		{
 			"_id" : "The Help",
 			"count" : 1491
 		},
 		{
+			"_id" : "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
+			"count" : 1485
+		},
+		{
 			"_id" : "Pinheads and Patriots: Where You Stand in the Age of Obama",
 			"count" : 1484
 		},
 		{
-			"_id" : "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
-			"count" : 1483
-		},
-		{
 			"_id" : "Harry Potter and the Goblet of Fire (Harry Potter, #4)",
-			"count" : 1466
+			"count" : 1468
 		},
 		{
 			"_id" : "Brave New World",
-			"count" : 1463
+			"count" : 1465
 		},
 		{
 			"_id" : "The Lion, the Witch, and the Wardrobe (Chronicles of Narnia, #1)",
-			"count" : 1434
+			"count" : 1435
 		},
 		{
 			"_id" : "Harry Potter and the Half-Blood Prince (Harry Potter, #6)",
-			"count" : 1428
+			"count" : 1430
 		},
 		{
 			"_id" : "Harry Potter and the Order of the Phoenix (Harry Potter, #5)",
-			"count" : 1425
+			"count" : 1427
 		},
 		{
 			"_id" : "Demonic: How the Liberal Mob is Endangering America",
@@ -144,11 +144,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Pride and Prejudice",
-			"count" : 1400
+			"count" : 1402
 		},
 		{
 			"_id" : "The Adventures of Huckleberry Finn (Tom Sawyer & Huckleberry Finn, #2)",
-			"count" : 1388
+			"count" : 1390
 		},
 		{
 			"_id" : "Twilight (Twilight, #1)",
@@ -164,11 +164,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Gone Girl",
-			"count" : 1298
+			"count" : 1299
 		},
 		{
 			"_id" : "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything (Freakonomics, #1)",
-			"count" : 1293
+			"count" : 1294
 		},
 		{
 			"_id" : "Arguing with Idiots: How to Stop Small Minds and Big Government",
@@ -176,11 +176,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Romeo and Juliet",
-			"count" : 1242
+			"count" : 1243
 		},
 		{
 			"_id" : "Ender's Game (The Ender Quintet, #1)",
-			"count" : 1229
+			"count" : 1231
 		},
 		{
 			"_id" : "Killing Kennedy: The End of Camelot",
@@ -191,7 +191,7 @@ connecting to: GOODREADS
 			"count" : 1163
 		},
 		{
-			"_id" : "The Screwtape Letters",
+			"_id" : "A Game of Thrones (A Song of Ice and Fire, #1)",
 			"count" : 1161
 		},
 		{
@@ -199,8 +199,8 @@ connecting to: GOODREADS
 			"count" : 1161
 		},
 		{
-			"_id" : "A Game of Thrones (A Song of Ice and Fire, #1)",
-			"count" : 1157
+			"_id" : "The Screwtape Letters",
+			"count" : 1161
 		},
 		{
 			"_id" : "1776",
@@ -212,7 +212,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Firm",
-			"count" : 1100
+			"count" : 1101
 		},
 		{
 			"_id" : "Mere Christianity",
@@ -232,7 +232,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Giver (The Giver, #1)",
-			"count" : 1055
+			"count" : 1056
 		},
 		{
 			"_id" : "Water for Elephants",
@@ -240,15 +240,15 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Frankenstein",
-			"count" : 1040
+			"count" : 1042
 		},
 		{
 			"_id" : "Outliers: The Story of Success",
-			"count" : 1038
+			"count" : 1040
 		},
 		{
 			"_id" : "Slaughterhouse-Five",
-			"count" : 1032
+			"count" : 1036
 		},
 		{
 			"_id" : "The Tipping Point: How Little Things Can Make a Big Difference",
@@ -256,7 +256,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Jane Eyre",
-			"count" : 1026
+			"count" : 1027
 		},
 		{
 			"_id" : "Divergent (Divergent, #1)",
@@ -288,7 +288,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Shining (The Shining, #1)",
-			"count" : 977
+			"count" : 978
 		},
 		{
 			"_id" : "The Grapes of Wrath",
@@ -296,11 +296,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Steve Jobs",
-			"count" : 969
+			"count" : 971
 		},
 		{
 			"_id" : "Jurassic Park (Jurassic Park, #1)",
-			"count" : 962
+			"count" : 963
 		},
 		{
 			"_id" : "The Lovely Bones",
@@ -308,15 +308,15 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Night (The Night Trilogy, #1)",
-			"count" : 940
+			"count" : 941
 		},
 		{
 			"_id" : "The Stand",
-			"count" : 936
+			"count" : 939
 		},
 		{
 			"_id" : "The Girl Who Played with Fire (Millennium, #2)",
-			"count" : 936
+			"count" : 937
 		},
 		{
 			"_id" : "The Hunt for Red October (Jack Ryan Universe, #4)",
@@ -324,11 +324,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Lost Symbol (Robert Langdon, #3)",
-			"count" : 930
+			"count" : 931
 		},
 		{
 			"_id" : "The Two Towers (The Lord of the Rings, #2)",
-			"count" : 919
+			"count" : 920
 		},
 		{
 			"_id" : "Charlotte's Web",
@@ -340,7 +340,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Return of the King (The Lord of the Rings, #3)",
-			"count" : 910
+			"count" : 911
 		},
 		{
 			"_id" : "The Count of Monte Cristo",
@@ -352,19 +352,19 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Fountainhead",
-			"count" : 890
+			"count" : 891
 		},
 		{
 			"_id" : "Wuthering Heights",
 			"count" : 889
 		},
 		{
-			"_id" : "The Adventures of Tom Sawyer (Tom Sawyer & Huckleberry Finn, #1)",
-			"count" : 887
+			"_id" : "Catch-22",
+			"count" : 888
 		},
 		{
-			"_id" : "Catch-22",
-			"count" : 887
+			"_id" : "The Adventures of Tom Sawyer (Tom Sawyer & Huckleberry Finn, #1)",
+			"count" : 888
 		},
 		{
 			"_id" : "Liberal Fascism: The Secret History of the American Left from Mussolini to the Politics of Meaning",
@@ -380,7 +380,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Blink: The Power of Thinking Without Thinking",
-			"count" : 867
+			"count" : 869
 		},
 		{
 			"_id" : "Where the Sidewalk Ends: The Poems and Drawings of Shel Silverstein",
@@ -391,16 +391,16 @@ connecting to: GOODREADS
 			"count" : 858
 		},
 		{
-			"_id" : "Lone Survivor: The Eyewitness Account of Operation Redwing and the Lost Heroes of SEAL Team 10",
-			"count" : 851
-		},
-		{
 			"_id" : "A Bold Fresh Piece of Humanity",
 			"count" : 851
 		},
 		{
+			"_id" : "Lone Survivor: The Eyewitness Account of Operation Redwing and the Lost Heroes of SEAL Team 10",
+			"count" : 851
+		},
+		{
 			"_id" : "A Christmas Carol",
-			"count" : 847
+			"count" : 848
 		},
 		{
 			"_id" : "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back",
@@ -416,15 +416,15 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Girl Who Kicked the Hornet's Nest (Millennium, #3)",
-			"count" : 827
+			"count" : 828
 		},
 		{
 			"_id" : "Into the Wild",
-			"count" : 820
+			"count" : 821
 		},
 		{
 			"_id" : "The Client",
-			"count" : 818
+			"count" : 819
 		},
 		{
 			"_id" : "New Moon (Twilight, #2)",
@@ -432,43 +432,43 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Alchemist",
-			"count" : 812
+			"count" : 813
+		},
+		{
+			"_id" : "Les Misérables",
+			"count" : 809
 		},
 		{
 			"_id" : "Life of Pi",
 			"count" : 808
 		},
 		{
-			"_id" : "Les Misérables",
-			"count" : 808
+			"_id" : "The Pelican Brief",
+			"count" : 802
 		},
 		{
 			"_id" : "Great Expectations",
 			"count" : 802
 		},
 		{
-			"_id" : "The Pelican Brief",
-			"count" : 801
-		},
-		{
 			"_id" : "The Art of War",
 			"count" : 799
+		},
+		{
+			"_id" : "The Devil in the White City: Murder, Magic, and Madness at the Fair that Changed America",
+			"count" : 794
 		},
 		{
 			"_id" : "An Inconvenient Book: Real Solutions to the World's Biggest Problems",
 			"count" : 792
 		},
 		{
-			"_id" : "The Devil in the White City: Murder, Magic, and Madness at the Fair that Changed America",
-			"count" : 792
+			"_id" : "The Road",
+			"count" : 790
 		},
 		{
 			"_id" : "Dune (Dune Chronicles, #1)",
-			"count" : 788
-		},
-		{
-			"_id" : "The Road",
-			"count" : 786
+			"count" : 790
 		},
 		{
 			"_id" : "Treasure Island",
@@ -512,18 +512,18 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin",
-			"count" : 724
+			"count" : 726
 		},
 		{
 			"_id" : "The 5000 Year Leap: A Miracle That Changed the World",
 			"count" : 718
 		},
 		{
-			"_id" : "Ameritopia: The Unmaking of America",
-			"count" : 714
+			"_id" : "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+			"count" : 715
 		},
 		{
-			"_id" : "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+			"_id" : "Ameritopia: The Unmaking of America",
 			"count" : 714
 		},
 		{
@@ -536,23 +536,23 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "11/22/63",
-			"count" : 704
+			"count" : 707
 		},
 		{
 			"_id" : "The Martian",
-			"count" : 702
+			"count" : 703
 		},
 		{
 			"_id" : "A Storm of Swords (A Song of Ice and Fire, #3)",
-			"count" : 698
+			"count" : 701
+		},
+		{
+			"_id" : "Sense and Sensibility",
+			"count" : 696
 		},
 		{
 			"_id" : "The Five People You Meet in Heaven",
 			"count" : 696
-		},
-		{
-			"_id" : "Sense and Sensibility",
-			"count" : 695
 		},
 		{
 			"_id" : "The Fault in Our Stars",
@@ -576,7 +576,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Road to Serfdom",
-			"count" : 686
+			"count" : 688
 		},
 		{
 			"_id" : "Inferno (Robert Langdon, #4)",
@@ -588,7 +588,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Left Behind (Left Behind, #1)",
-			"count" : 683
+			"count" : 684
 		},
 		{
 			"_id" : "Patriot Games (Jack Ryan Universe, #2)",
@@ -596,7 +596,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Anthem",
-			"count" : 672
+			"count" : 673
 		},
 		{
 			"_id" : "The Roots of Obama's Rage",
@@ -604,51 +604,51 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "World War Z: An Oral History of the Zombie War",
-			"count" : 667
+			"count" : 669
 		},
 		{
 			"_id" : "Culture Warrior",
 			"count" : 667
 		},
 		{
-			"_id" : "Holy Bible: King James Version",
+			"_id" : "A Clash of Kings  (A Song of Ice and Fire, #2)",
 			"count" : 653
 		},
 		{
 			"_id" : "The Prince",
-			"count" : 652
+			"count" : 653
+		},
+		{
+			"_id" : "Holy Bible: King James Version",
+			"count" : 653
 		},
 		{
 			"_id" : "Macbeth",
 			"count" : 650
 		},
 		{
-			"_id" : "A Clash of Kings  (A Song of Ice and Fire, #2)",
-			"count" : 649
-		},
-		{
 			"_id" : "The Hiding Place",
-			"count" : 646
+			"count" : 647
 		},
 		{
 			"_id" : "Crime and Punishment",
-			"count" : 644
+			"count" : 645
 		},
 		{
 			"_id" : "No Easy Day: The Firsthand Account of the Mission That Killed Osama Bin Laden",
 			"count" : 640
 		},
 		{
-			"_id" : "One Flew Over the Cuckoo's Nest",
-			"count" : 638
+			"_id" : "The Time Machine",
+			"count" : 640
 		},
 		{
-			"_id" : "The Time Machine",
-			"count" : 638
+			"_id" : "One Flew Over the Cuckoo's Nest",
+			"count" : 639
 		},
 		{
 			"_id" : "Treason: Liberal Treachery from the Cold War to the War on Terrorism",
-			"count" : 636
+			"count" : 637
 		},
 		{
 			"_id" : "Into Thin Air: A Personal Account of the Mount Everest Disaster",
@@ -663,16 +663,16 @@ connecting to: GOODREADS
 			"count" : 634
 		},
 		{
+			"_id" : "It",
+			"count" : 633
+		},
+		{
 			"_id" : "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies",
 			"count" : 632
 		},
 		{
-			"_id" : "It",
-			"count" : 630
-		},
-		{
 			"_id" : "The Girl on the Train",
-			"count" : 630
+			"count" : 631
 		},
 		{
 			"_id" : "The Giving Tree",
@@ -687,7 +687,7 @@ connecting to: GOODREADS
 			"count" : 623
 		},
 		{
-			"_id" : "The Federalist Papers",
+			"_id" : "The Lord of the Rings (The Lord of the Rings, #1-3)",
 			"count" : 622
 		},
 		{
@@ -695,12 +695,12 @@ connecting to: GOODREADS
 			"count" : 622
 		},
 		{
-			"_id" : "The Lord of the Rings (The Lord of the Rings, #1-3)",
-			"count" : 621
+			"_id" : "The Federalist Papers",
+			"count" : 622
 		},
 		{
 			"_id" : "Deception Point",
-			"count" : 620
+			"count" : 621
 		},
 		{
 			"_id" : "The Last Lecture",
@@ -715,12 +715,12 @@ connecting to: GOODREADS
 			"count" : 606
 		},
 		{
-			"_id" : "How to Win Friends and Influence People",
-			"count" : 602
+			"_id" : "Bossypants",
+			"count" : 603
 		},
 		{
-			"_id" : "Bossypants",
-			"count" : 602
+			"_id" : "How to Win Friends and Influence People",
+			"count" : 603
 		},
 		{
 			"_id" : "The Call of the Wild",
@@ -728,27 +728,27 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Andromeda Strain",
-			"count" : 589
+			"count" : 591
 		},
 		{
 			"_id" : "The Secret Garden",
-			"count" : 584
+			"count" : 585
+		},
+		{
+			"_id" : "A Feast for Crows (A Song of Ice and Fire, #4)",
+			"count" : 583
+		},
+		{
+			"_id" : "America Alone: The End of the World As We Know It",
+			"count" : 582
 		},
 		{
 			"_id" : "Eragon (The Inheritance Cycle, #1)",
 			"count" : 582
 		},
 		{
-			"_id" : "America Alone: The End of the World As We Know It",
-			"count" : 581
-		},
-		{
-			"_id" : "A Feast for Crows (A Song of Ice and Fire, #4)",
-			"count" : 580
-		},
-		{
 			"_id" : "Timeline",
-			"count" : 574
+			"count" : 575
 		},
 		{
 			"_id" : "The Lightning Thief (Percy Jackson and the Olympians, #1)",
@@ -760,11 +760,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Interview with the Vampire (The Vampire Chronicles, #1)",
-			"count" : 569
+			"count" : 570
 		},
 		{
 			"_id" : "The Magician's Nephew (Chronicles of Narnia, #6)",
-			"count" : 565
+			"count" : 566
 		},
 		{
 			"_id" : "Where the Wild Things Are",
@@ -783,32 +783,32 @@ connecting to: GOODREADS
 			"count" : 560
 		},
 		{
-			"_id" : "The Rainmaker",
-			"count" : 557
+			"_id" : "The Voyage of the Dawn Treader (Chronicles of Narnia, #3)",
+			"count" : 558
 		},
 		{
-			"_id" : "The Voyage of the Dawn Treader (Chronicles of Narnia, #3)",
-			"count" : 557
+			"_id" : "The Rainmaker",
+			"count" : 558
 		},
 		{
 			"_id" : "The Immortal Life of Henrietta Lacks",
-			"count" : 553
+			"count" : 555
 		},
 		{
 			"_id" : "Misery",
-			"count" : 549
+			"count" : 551
+		},
+		{
+			"_id" : "Slander: Liberal Lies About the American Right",
+			"count" : 546
+		},
+		{
+			"_id" : "The Gunslinger (The Dark Tower, #1)",
+			"count" : 546
 		},
 		{
 			"_id" : "Digital Fortress",
 			"count" : 545
-		},
-		{
-			"_id" : "Slander: Liberal Lies About the American Right",
-			"count" : 545
-		},
-		{
-			"_id" : "The Gunslinger (The Dark Tower, #1)",
-			"count" : 544
 		},
 		{
 			"_id" : "My Sister's Keeper",
@@ -816,11 +816,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Stranger",
-			"count" : 540
+			"count" : 541
 		},
 		{
 			"_id" : "Carrie",
-			"count" : 539
+			"count" : 540
 		},
 		{
 			"_id" : "The Christmas Sweater",
@@ -836,11 +836,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "A Clockwork Orange",
-			"count" : 534
+			"count" : 535
 		},
 		{
 			"_id" : "Godless: The Church of Liberalism",
-			"count" : 534
+			"count" : 535
 		},
 		{
 			"_id" : "The Purpose Driven Life: What on Earth Am I Here for?",
@@ -855,11 +855,11 @@ connecting to: GOODREADS
 			"count" : 529
 		},
 		{
-			"_id" : "SuperFreakonomics: Global Cooling, Patriotic Prostitutes And Why Suicide Bombers Should Buy Life Insurance",
-			"count" : 527
+			"_id" : "State of Fear",
+			"count" : 528
 		},
 		{
-			"_id" : "State of Fear",
+			"_id" : "Team of Rivals: The Political Genius of Abraham Lincoln",
 			"count" : 527
 		},
 		{
@@ -867,24 +867,24 @@ connecting to: GOODREADS
 			"count" : 527
 		},
 		{
-			"_id" : "Team of Rivals: The Political Genius of Abraham Lincoln",
+			"_id" : "SuperFreakonomics: Global Cooling, Patriotic Prostitutes And Why Suicide Bombers Should Buy Life Insurance",
 			"count" : 527
+		},
+		{
+			"_id" : "The Sun Also Rises",
+			"count" : 525
 		},
 		{
 			"_id" : "The Princess Bride ",
 			"count" : 525
 		},
 		{
-			"_id" : "The Sun Also Rises",
+			"_id" : "Prince Caspian (Chronicles of Narnia, #2)",
 			"count" : 524
 		},
 		{
 			"_id" : "'Salem's Lot",
-			"count" : 523
-		},
-		{
-			"_id" : "Prince Caspian (Chronicles of Narnia, #2)",
-			"count" : 523
+			"count" : 524
 		},
 		{
 			"_id" : "Stranger in a Strange Land",
@@ -912,14 +912,18 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "A Dance with Dragons (A Song of Ice and Fire, #5)",
-			"count" : 504
+			"count" : 507
+		},
+		{
+			"_id" : "East of Eden",
+			"count" : 503
 		},
 		{
 			"_id" : "A Patriot's History of the United States: From Columbus's Great Discovery to the War on Terror",
 			"count" : 503
 		},
 		{
-			"_id" : "The Godfather",
+			"_id" : "The Great Divorce",
 			"count" : 502
 		},
 		{
@@ -927,32 +931,28 @@ connecting to: GOODREADS
 			"count" : 502
 		},
 		{
-			"_id" : "East of Eden",
+			"_id" : "The Godfather",
 			"count" : 502
-		},
-		{
-			"_id" : "The Great Divorce",
-			"count" : 501
 		},
 		{
 			"_id" : "Agenda 21 (Agenda 21, #1)",
 			"count" : 499
 		},
 		{
+			"_id" : "How to Talk to a Liberal (If You Must): The World According to Ann Coulter",
+			"count" : 499
+		},
+		{
+			"_id" : "Congo",
+			"count" : 498
+		},
+		{
 			"_id" : "The Joy Luck Club",
 			"count" : 498
 		},
 		{
-			"_id" : "How to Talk to a Liberal (If You Must): The World According to Ann Coulter",
-			"count" : 498
-		},
-		{
-			"_id" : "Congo",
-			"count" : 497
-		},
-		{
 			"_id" : "Starship Troopers",
-			"count" : 492
+			"count" : 493
 		},
 		{
 			"_id" : "All Quiet on the Western Front",
@@ -967,11 +967,11 @@ connecting to: GOODREADS
 			"count" : 490
 		},
 		{
-			"_id" : "The War of the Worlds",
+			"_id" : "Bonhoeffer: Pastor, Martyr, Prophet, Spy",
 			"count" : 489
 		},
 		{
-			"_id" : "Bonhoeffer: Pastor, Martyr, Prophet, Spy",
+			"_id" : "The War of the Worlds",
 			"count" : 489
 		},
 		{
@@ -996,10 +996,10 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Prey",
-			"count" : 483
+			"count" : 484
 		},
 		{
-			"_id" : "The Forgotten Man: A New History of the Great Depression",
+			"_id" : "Sphere",
 			"count" : 483
 		},
 		{
@@ -1007,12 +1007,12 @@ connecting to: GOODREADS
 			"count" : 483
 		},
 		{
-			"_id" : "Emma",
+			"_id" : "The Forgotten Man: A New History of the Great Depression",
 			"count" : 483
 		},
 		{
-			"_id" : "Sphere",
-			"count" : 482
+			"_id" : "Emma",
+			"count" : 483
 		},
 		{
 			"_id" : "Wicked: The Life and Times of the Wicked Witch of the West (The Wicked Years, #1)",
@@ -1023,11 +1023,11 @@ connecting to: GOODREADS
 			"count" : 481
 		},
 		{
-			"_id" : "Sarah's Key",
+			"_id" : "One for the Money (Stephanie Plum, #1)",
 			"count" : 481
 		},
 		{
-			"_id" : "One for the Money (Stephanie Plum, #1)",
+			"_id" : "Sarah's Key",
 			"count" : 481
 		},
 		{
@@ -1036,11 +1036,11 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Quiet: The Power of Introverts in a World That Can't Stop Talking",
-			"count" : 478
+			"count" : 479
 		},
 		{
 			"_id" : "Three Cups of Tea: One Man's Mission to Promote Peace ... One School at a Time",
-			"count" : 477
+			"count" : 478
 		},
 		{
 			"_id" : "The Art of Racing in the Rain",
@@ -1052,15 +1052,19 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Chamber",
-			"count" : 475
+			"count" : 476
 		},
 		{
 			"_id" : "Man's Search for Meaning",
-			"count" : 472
+			"count" : 474
 		},
 		{
 			"_id" : "The Poisonwood Bible",
 			"count" : 471
+		},
+		{
+			"_id" : "The Horse and His Boy (Chronicles of Narnia, #5)",
+			"count" : 470
 		},
 		{
 			"_id" : "A Tree Grows in Brooklyn",
@@ -1068,10 +1072,6 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Wild: From Lost to Found on the Pacific Crest Trail",
-			"count" : 469
-		},
-		{
-			"_id" : "The Horse and His Boy (Chronicles of Narnia, #5)",
 			"count" : 469
 		},
 		{
@@ -1100,14 +1100,14 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Last Battle (Chronicles of Narnia, #7)",
-			"count" : 461
-		},
-		{
-			"_id" : "Killing Patton: The Strange Death of World War II's Most Audacious General",
-			"count" : 454
+			"count" : 462
 		},
 		{
 			"_id" : "The Testament",
+			"count" : 455
+		},
+		{
+			"_id" : "Killing Patton: The Strange Death of World War II's Most Audacious General",
 			"count" : 454
 		},
 		{
@@ -1120,7 +1120,7 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Silver Chair (Chronicles of Narnia, #4)",
-			"count" : 448
+			"count" : 449
 		},
 		{
 			"_id" : "The Joy of Hate: How to Triumph over Whiners in the Age of Phony Outrage",
@@ -1128,39 +1128,43 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Uncle Tom's Cabin",
-			"count" : 446
+			"count" : 447
+		},
+		{
+			"_id" : "Flowers for Algernon",
+			"count" : 445
 		},
 		{
 			"_id" : "The Memory Keeper's Daughter",
 			"count" : 445
 		},
 		{
-			"_id" : "Flowers for Algernon",
+			"_id" : "Siddhartha",
 			"count" : 444
 		},
 		{
-			"_id" : "Siddhartha",
+			"_id" : "Oliver Twist",
 			"count" : 443
+		},
+		{
+			"_id" : "Without Remorse (Jack Ryan Universe, #1)",
+			"count" : 442
 		},
 		{
 			"_id" : "The Host (The Host, #1)",
 			"count" : 442
 		},
 		{
-			"_id" : "Oliver Twist",
-			"count" : 442
-		},
-		{
-			"_id" : "Without Remorse (Jack Ryan Universe, #1)",
-			"count" : 441
-		},
-		{
 			"_id" : "Moneyball: The Art of Winning an Unfair Game",
-			"count" : 440
+			"count" : 441
 		},
 		{
 			"_id" : "The Sum of All Fears (Jack Ryan Universe, #7)",
 			"count" : 440
+		},
+		{
+			"_id" : "Ready Player One",
+			"count" : 439
 		},
 		{
 			"_id" : "The Constitution of the United States of America",
@@ -1168,10 +1172,6 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "Things That Matter: Three Decades of Passions, Pastimes and Politics",
-			"count" : 438
-		},
-		{
-			"_id" : "Ready Player One",
 			"count" : 438
 		},
 		{
@@ -1192,14 +1192,14 @@ connecting to: GOODREADS
 		},
 		{
 			"_id" : "The Rise and Fall of the Third Reich: A History of Nazi Germany",
-			"count" : 433
+			"count" : 434
 		},
 		{
 			"_id" : "A Midsummer Night's Dream",
-			"count" : 433
+			"count" : 434
 		},
 		{
-			"_id" : "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+			"_id" : "Midnight in the Garden of Good and Evil: A Savannah Story",
 			"count" : 431
 		}
 	],
