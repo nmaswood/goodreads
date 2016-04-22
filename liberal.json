@@ -1,0 +1,1207 @@
+MongoDB shell version: 2.4.9
+connecting to: GOODREADS
+{
+	"result" : [
+		{
+			"_id" : "The Hunger Games (The Hunger Games, #1)",
+			"count" : 2867
+		},
+		{
+			"_id" : "To Kill a Mockingbird",
+			"count" : 2516
+		},
+		{
+			"_id" : "1984",
+			"count" : 2367
+		},
+		{
+			"_id" : "Animal Farm",
+			"count" : 2325
+		},
+		{
+			"_id" : "The Great Gatsby",
+			"count" : 2217
+		},
+		{
+			"_id" : "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
+			"count" : 2192
+		},
+		{
+			"_id" : "The Hobbit",
+			"count" : 2176
+		},
+		{
+			"_id" : "Catching Fire (The Hunger Games, #2)",
+			"count" : 2099
+		},
+		{
+			"_id" : "The Da Vinci Code (Robert Langdon, #2)",
+			"count" : 2013
+		},
+		{
+			"_id" : "Mockingjay (The Hunger Games, #3)",
+			"count" : 2010
+		},
+		{
+			"_id" : "Killing Lincoln: The Shocking Assassination that Changed America Forever",
+			"count" : 1848
+		},
+		{
+			"_id" : "Atlas Shrugged",
+			"count" : 1832
+		},
+		{
+			"_id" : "The Diary of a Young Girl",
+			"count" : 1826
+		},
+		{
+			"_id" : "The Catcher in the Rye",
+			"count" : 1813
+		},
+		{
+			"_id" : "The Amateur",
+			"count" : 1803
+		},
+		{
+			"_id" : "Lord of the Flies",
+			"count" : 1688
+		},
+		{
+			"_id" : "The Girl with the Dragon Tattoo (Millennium, #1)",
+			"count" : 1655
+		},
+		{
+			"_id" : "Angels & Demons  (Robert Langdon, #1)",
+			"count" : 1629
+		},
+		{
+			"_id" : "The Fellowship of the Ring (The Lord of the Rings, #1)",
+			"count" : 1598
+		},
+		{
+			"_id" : "Fahrenheit 451",
+			"count" : 1572
+		},
+		{
+			"_id" : "Of Mice and Men",
+			"count" : 1547
+		},
+		{
+			"_id" : "Unbroken: A World War II Story of Survival, Resilience, and Redemption",
+			"count" : 1543
+		},
+		{
+			"_id" : "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
+			"count" : 1542
+		},
+		{
+			"_id" : "Broke : The Plan to Restore our Trust, Truth and Treasure",
+			"count" : 1528
+		},
+		{
+			"_id" : "Decision Points",
+			"count" : 1520
+		},
+		{
+			"_id" : "Harry Potter and the Chamber of Secrets (Harry Potter, #2)",
+			"count" : 1500
+		},
+		{
+			"_id" : "The Help",
+			"count" : 1491
+		},
+		{
+			"_id" : "Pinheads and Patriots: Where You Stand in the Age of Obama",
+			"count" : 1484
+		},
+		{
+			"_id" : "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
+			"count" : 1483
+		},
+		{
+			"_id" : "Harry Potter and the Goblet of Fire (Harry Potter, #4)",
+			"count" : 1466
+		},
+		{
+			"_id" : "Brave New World",
+			"count" : 1463
+		},
+		{
+			"_id" : "The Lion, the Witch, and the Wardrobe (Chronicles of Narnia, #1)",
+			"count" : 1434
+		},
+		{
+			"_id" : "Harry Potter and the Half-Blood Prince (Harry Potter, #6)",
+			"count" : 1428
+		},
+		{
+			"_id" : "Harry Potter and the Order of the Phoenix (Harry Potter, #5)",
+			"count" : 1425
+		},
+		{
+			"_id" : "Demonic: How the Liberal Mob is Endangering America",
+			"count" : 1415
+		},
+		{
+			"_id" : "Pride and Prejudice",
+			"count" : 1400
+		},
+		{
+			"_id" : "The Adventures of Huckleberry Finn (Tom Sawyer & Huckleberry Finn, #2)",
+			"count" : 1388
+		},
+		{
+			"_id" : "Twilight (Twilight, #1)",
+			"count" : 1360
+		},
+		{
+			"_id" : "The Kite Runner",
+			"count" : 1346
+		},
+		{
+			"_id" : "Liberty and Tyranny: A Conservative Manifesto",
+			"count" : 1333
+		},
+		{
+			"_id" : "Gone Girl",
+			"count" : 1298
+		},
+		{
+			"_id" : "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything (Freakonomics, #1)",
+			"count" : 1293
+		},
+		{
+			"_id" : "Arguing with Idiots: How to Stop Small Minds and Big Government",
+			"count" : 1288
+		},
+		{
+			"_id" : "Romeo and Juliet",
+			"count" : 1242
+		},
+		{
+			"_id" : "Ender's Game (The Ender Quintet, #1)",
+			"count" : 1229
+		},
+		{
+			"_id" : "Killing Kennedy: The End of Camelot",
+			"count" : 1228
+		},
+		{
+			"_id" : "Glenn Beck's Common Sense: The Case Against an Out-of-Control Government, Inspired by Thomas Paine",
+			"count" : 1163
+		},
+		{
+			"_id" : "The Screwtape Letters",
+			"count" : 1161
+		},
+		{
+			"_id" : "John Adams",
+			"count" : 1161
+		},
+		{
+			"_id" : "A Game of Thrones (A Song of Ice and Fire, #1)",
+			"count" : 1157
+		},
+		{
+			"_id" : "1776",
+			"count" : 1109
+		},
+		{
+			"_id" : "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
+			"count" : 1107
+		},
+		{
+			"_id" : "The Firm",
+			"count" : 1100
+		},
+		{
+			"_id" : "Mere Christianity",
+			"count" : 1086
+		},
+		{
+			"_id" : "Gone with the Wind",
+			"count" : 1078
+		},
+		{
+			"_id" : "A Tale of Two Cities",
+			"count" : 1074
+		},
+		{
+			"_id" : "A Time to Kill (Jake Brigance, #1)",
+			"count" : 1059
+		},
+		{
+			"_id" : "The Giver (The Giver, #1)",
+			"count" : 1055
+		},
+		{
+			"_id" : "Water for Elephants",
+			"count" : 1050
+		},
+		{
+			"_id" : "Frankenstein",
+			"count" : 1040
+		},
+		{
+			"_id" : "Outliers: The Story of Success",
+			"count" : 1038
+		},
+		{
+			"_id" : "Slaughterhouse-Five",
+			"count" : 1032
+		},
+		{
+			"_id" : "The Tipping Point: How Little Things Can Make a Big Difference",
+			"count" : 1030
+		},
+		{
+			"_id" : "Jane Eyre",
+			"count" : 1026
+		},
+		{
+			"_id" : "Divergent (Divergent, #1)",
+			"count" : 1018
+		},
+		{
+			"_id" : "The Book Thief",
+			"count" : 1013
+		},
+		{
+			"_id" : "The Scarlet Letter",
+			"count" : 1011
+		},
+		{
+			"_id" : "The Shack",
+			"count" : 1009
+		},
+		{
+			"_id" : "Righteous Indignation: Excuse Me While I Save the World!",
+			"count" : 1007
+		},
+		{
+			"_id" : "Little Women (Little Women, #1)",
+			"count" : 1005
+		},
+		{
+			"_id" : "The Odyssey",
+			"count" : 998
+		},
+		{
+			"_id" : "The Shining (The Shining, #1)",
+			"count" : 977
+		},
+		{
+			"_id" : "The Grapes of Wrath",
+			"count" : 972
+		},
+		{
+			"_id" : "Steve Jobs",
+			"count" : 969
+		},
+		{
+			"_id" : "Jurassic Park (Jurassic Park, #1)",
+			"count" : 962
+		},
+		{
+			"_id" : "The Lovely Bones",
+			"count" : 953
+		},
+		{
+			"_id" : "Night (The Night Trilogy, #1)",
+			"count" : 940
+		},
+		{
+			"_id" : "The Girl Who Played with Fire (Millennium, #2)",
+			"count" : 936
+		},
+		{
+			"_id" : "The Stand",
+			"count" : 936
+		},
+		{
+			"_id" : "The Hunt for Red October (Jack Ryan Universe, #4)",
+			"count" : 933
+		},
+		{
+			"_id" : "The Lost Symbol (Robert Langdon, #3)",
+			"count" : 930
+		},
+		{
+			"_id" : "The Two Towers (The Lord of the Rings, #2)",
+			"count" : 919
+		},
+		{
+			"_id" : "Charlotte's Web",
+			"count" : 916
+		},
+		{
+			"_id" : "Going Rogue: An American Life",
+			"count" : 913
+		},
+		{
+			"_id" : "The Return of the King (The Lord of the Rings, #3)",
+			"count" : 910
+		},
+		{
+			"_id" : "The Count of Monte Cristo",
+			"count" : 903
+		},
+		{
+			"_id" : "Dracula",
+			"count" : 898
+		},
+		{
+			"_id" : "The Fountainhead",
+			"count" : 890
+		},
+		{
+			"_id" : "Wuthering Heights",
+			"count" : 889
+		},
+		{
+			"_id" : "The Adventures of Tom Sawyer (Tom Sawyer & Huckleberry Finn, #1)",
+			"count" : 887
+		},
+		{
+			"_id" : "Liberal Fascism: The Secret History of the American Left from Mussolini to the Politics of Meaning",
+			"count" : 887
+		},
+		{
+			"_id" : "Catch-22",
+			"count" : 887
+		},
+		{
+			"_id" : "Hamlet",
+			"count" : 884
+		},
+		{
+			"_id" : "The Old Man and the Sea",
+			"count" : 876
+		},
+		{
+			"_id" : "Blink: The Power of Thinking Without Thinking",
+			"count" : 867
+		},
+		{
+			"_id" : "Where the Sidewalk Ends: The Poems and Drawings of Shel Silverstein",
+			"count" : 858
+		},
+		{
+			"_id" : "Memoirs of a Geisha",
+			"count" : 858
+		},
+		{
+			"_id" : "A Bold Fresh Piece of Humanity",
+			"count" : 851
+		},
+		{
+			"_id" : "Lone Survivor: The Eyewitness Account of Operation Redwing and the Lost Heroes of SEAL Team 10",
+			"count" : 851
+		},
+		{
+			"_id" : "A Christmas Carol",
+			"count" : 847
+		},
+		{
+			"_id" : "Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back",
+			"count" : 835
+		},
+		{
+			"_id" : "Tuesdays with Morrie",
+			"count" : 834
+		},
+		{
+			"_id" : "American Sniper: The Autobiography of the Most Lethal Sniper in U.S. Military History",
+			"count" : 833
+		},
+		{
+			"_id" : "The Girl Who Kicked the Hornet's Nest (Millennium, #3)",
+			"count" : 827
+		},
+		{
+			"_id" : "Into the Wild",
+			"count" : 820
+		},
+		{
+			"_id" : "The Client",
+			"count" : 818
+		},
+		{
+			"_id" : "New Moon (Twilight, #2)",
+			"count" : 815
+		},
+		{
+			"_id" : "The Alchemist",
+			"count" : 812
+		},
+		{
+			"_id" : "Life of Pi",
+			"count" : 808
+		},
+		{
+			"_id" : "Les Misérables",
+			"count" : 808
+		},
+		{
+			"_id" : "Great Expectations",
+			"count" : 802
+		},
+		{
+			"_id" : "The Pelican Brief",
+			"count" : 801
+		},
+		{
+			"_id" : "The Art of War",
+			"count" : 799
+		},
+		{
+			"_id" : "The Devil in the White City: Murder, Magic, and Madness at the Fair that Changed America",
+			"count" : 792
+		},
+		{
+			"_id" : "An Inconvenient Book: Real Solutions to the World's Biggest Problems",
+			"count" : 792
+		},
+		{
+			"_id" : "Dune (Dune Chronicles, #1)",
+			"count" : 788
+		},
+		{
+			"_id" : "The Road",
+			"count" : 786
+		},
+		{
+			"_id" : "Treasure Island",
+			"count" : 782
+		},
+		{
+			"_id" : "Eclipse (Twilight, #3)",
+			"count" : 781
+		},
+		{
+			"_id" : "The Overton Window (Overton Window, #1)",
+			"count" : 779
+		},
+		{
+			"_id" : "Eat, Pray, Love",
+			"count" : 762
+		},
+		{
+			"_id" : "Breaking Dawn (Twilight, #4)",
+			"count" : 761
+		},
+		{
+			"_id" : "Killing Jesus: A History",
+			"count" : 758
+		},
+		{
+			"_id" : "The Secret Life of Bees",
+			"count" : 752
+		},
+		{
+			"_id" : "The Pillars of the Earth  (The Pillars of the Earth, #1)",
+			"count" : 751
+		},
+		{
+			"_id" : "The Time Traveler's Wife",
+			"count" : 746
+		},
+		{
+			"_id" : "Guilty: Liberal \"Victims\" and Their Assault on America",
+			"count" : 735
+		},
+		{
+			"_id" : "In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin",
+			"count" : 724
+		},
+		{
+			"_id" : "The 5000 Year Leap: A Miracle That Changed the World",
+			"count" : 718
+		},
+		{
+			"_id" : "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+			"count" : 714
+		},
+		{
+			"_id" : "Ameritopia: The Unmaking of America",
+			"count" : 714
+		},
+		{
+			"_id" : "In Cold Blood",
+			"count" : 713
+		},
+		{
+			"_id" : "A Thousand Splendid Suns",
+			"count" : 711
+		},
+		{
+			"_id" : "11/22/63",
+			"count" : 704
+		},
+		{
+			"_id" : "The Martian",
+			"count" : 702
+		},
+		{
+			"_id" : "A Storm of Swords (A Song of Ice and Fire, #3)",
+			"count" : 698
+		},
+		{
+			"_id" : "The Five People You Meet in Heaven",
+			"count" : 696
+		},
+		{
+			"_id" : "The Fault in Our Stars",
+			"count" : 695
+		},
+		{
+			"_id" : "Sense and Sensibility",
+			"count" : 695
+		},
+		{
+			"_id" : "The Bourne Identity (Jason Bourne, #1)",
+			"count" : 694
+		},
+		{
+			"_id" : "The Glass Castle",
+			"count" : 693
+		},
+		{
+			"_id" : "The Notebook (The Notebook, #1)",
+			"count" : 689
+		},
+		{
+			"_id" : "Fifty Shades of Grey (Fifty Shades, #1)",
+			"count" : 688
+		},
+		{
+			"_id" : "The Road to Serfdom",
+			"count" : 686
+		},
+		{
+			"_id" : "Inferno (Robert Langdon, #4)",
+			"count" : 685
+		},
+		{
+			"_id" : "A Wrinkle in Time (A Wrinkle in Time Quintet, #1)",
+			"count" : 684
+		},
+		{
+			"_id" : "Left Behind (Left Behind, #1)",
+			"count" : 683
+		},
+		{
+			"_id" : "Patriot Games (Jack Ryan Universe, #2)",
+			"count" : 679
+		},
+		{
+			"_id" : "Anthem",
+			"count" : 672
+		},
+		{
+			"_id" : "The Roots of Obama's Rage",
+			"count" : 670
+		},
+		{
+			"_id" : "World War Z: An Oral History of the Zombie War",
+			"count" : 667
+		},
+		{
+			"_id" : "Culture Warrior",
+			"count" : 667
+		},
+		{
+			"_id" : "Holy Bible: King James Version",
+			"count" : 653
+		},
+		{
+			"_id" : "The Prince",
+			"count" : 652
+		},
+		{
+			"_id" : "Macbeth",
+			"count" : 650
+		},
+		{
+			"_id" : "A Clash of Kings  (A Song of Ice and Fire, #2)",
+			"count" : 649
+		},
+		{
+			"_id" : "The Hiding Place",
+			"count" : 646
+		},
+		{
+			"_id" : "Crime and Punishment",
+			"count" : 644
+		},
+		{
+			"_id" : "No Easy Day: The Firsthand Account of the Mission That Killed Osama Bin Laden",
+			"count" : 640
+		},
+		{
+			"_id" : "One Flew Over the Cuckoo's Nest",
+			"count" : 638
+		},
+		{
+			"_id" : "The Time Machine",
+			"count" : 638
+		},
+		{
+			"_id" : "Treason: Liberal Treachery from the Cold War to the War on Terrorism",
+			"count" : 636
+		},
+		{
+			"_id" : "Into Thin Air: A Personal Account of the Mount Everest Disaster",
+			"count" : 636
+		},
+		{
+			"_id" : "The Runaway Jury",
+			"count" : 635
+		},
+		{
+			"_id" : "Moby-Dick; or, The Whale",
+			"count" : 634
+		},
+		{
+			"_id" : "Culture of Corruption: Obama and His Team of Tax Cheats, Crooks, and Cronies",
+			"count" : 632
+		},
+		{
+			"_id" : "It",
+			"count" : 630
+		},
+		{
+			"_id" : "The Girl on the Train",
+			"count" : 630
+		},
+		{
+			"_id" : "The Giving Tree",
+			"count" : 629
+		},
+		{
+			"_id" : "The Picture of Dorian Gray",
+			"count" : 628
+		},
+		{
+			"_id" : "Insurgent (Divergent, #2)",
+			"count" : 623
+		},
+		{
+			"_id" : "The Chronicles of Narnia (Chronicles of Narnia, #1-7)",
+			"count" : 622
+		},
+		{
+			"_id" : "The Federalist Papers",
+			"count" : 622
+		},
+		{
+			"_id" : "The Lord of the Rings (The Lord of the Rings, #1-3)",
+			"count" : 621
+		},
+		{
+			"_id" : "Deception Point",
+			"count" : 620
+		},
+		{
+			"_id" : "The Last Lecture",
+			"count" : 619
+		},
+		{
+			"_id" : "Green Eggs and Ham",
+			"count" : 615
+		},
+		{
+			"_id" : "Angela's Ashes (Frank McCourt, #1)",
+			"count" : 606
+		},
+		{
+			"_id" : "Bossypants",
+			"count" : 602
+		},
+		{
+			"_id" : "How to Win Friends and Influence People",
+			"count" : 602
+		},
+		{
+			"_id" : "The Call of the Wild",
+			"count" : 599
+		},
+		{
+			"_id" : "The Andromeda Strain",
+			"count" : 589
+		},
+		{
+			"_id" : "The Secret Garden",
+			"count" : 584
+		},
+		{
+			"_id" : "Eragon (The Inheritance Cycle, #1)",
+			"count" : 582
+		},
+		{
+			"_id" : "America Alone: The End of the World As We Know It",
+			"count" : 581
+		},
+		{
+			"_id" : "A Feast for Crows (A Song of Ice and Fire, #4)",
+			"count" : 580
+		},
+		{
+			"_id" : "Timeline",
+			"count" : 574
+		},
+		{
+			"_id" : "The Lightning Thief (Percy Jackson and the Olympians, #1)",
+			"count" : 573
+		},
+		{
+			"_id" : "Anne of Green Gables (Anne of Green Gables, #1)",
+			"count" : 572
+		},
+		{
+			"_id" : "Interview with the Vampire (The Vampire Chronicles, #1)",
+			"count" : 569
+		},
+		{
+			"_id" : "The Magician's Nephew (Chronicles of Narnia, #6)",
+			"count" : 565
+		},
+		{
+			"_id" : "Where the Wild Things Are",
+			"count" : 563
+		},
+		{
+			"_id" : "Being George Washington",
+			"count" : 562
+		},
+		{
+			"_id" : "The Iliad",
+			"count" : 561
+		},
+		{
+			"_id" : "Clear and Present Danger (Jack Ryan Universe, #6)",
+			"count" : 560
+		},
+		{
+			"_id" : "The Rainmaker",
+			"count" : 557
+		},
+		{
+			"_id" : "The Voyage of the Dawn Treader (Chronicles of Narnia, #3)",
+			"count" : 557
+		},
+		{
+			"_id" : "The Immortal Life of Henrietta Lacks",
+			"count" : 553
+		},
+		{
+			"_id" : "Misery",
+			"count" : 549
+		},
+		{
+			"_id" : "Slander: Liberal Lies About the American Right",
+			"count" : 545
+		},
+		{
+			"_id" : "Digital Fortress",
+			"count" : 545
+		},
+		{
+			"_id" : "The Gunslinger (The Dark Tower, #1)",
+			"count" : 544
+		},
+		{
+			"_id" : "My Sister's Keeper",
+			"count" : 541
+		},
+		{
+			"_id" : "The Stranger",
+			"count" : 540
+		},
+		{
+			"_id" : "Carrie",
+			"count" : 539
+		},
+		{
+			"_id" : "The Christmas Sweater",
+			"count" : 537
+		},
+		{
+			"_id" : "The Guernsey Literary and Potato Peel Pie Society",
+			"count" : 536
+		},
+		{
+			"_id" : "The Audacity of Hope: Thoughts on Reclaiming the American Dream",
+			"count" : 536
+		},
+		{
+			"_id" : "Godless: The Church of Liberalism",
+			"count" : 534
+		},
+		{
+			"_id" : "A Clockwork Orange",
+			"count" : 534
+		},
+		{
+			"_id" : "The Purpose Driven Life: What on Earth Am I Here for?",
+			"count" : 531
+		},
+		{
+			"_id" : "Killing Floor (Jack Reacher, #1)",
+			"count" : 530
+		},
+		{
+			"_id" : "Pet Sematary",
+			"count" : 529
+		},
+		{
+			"_id" : "The Curious Incident of the Dog in the Night-Time",
+			"count" : 527
+		},
+		{
+			"_id" : "State of Fear",
+			"count" : 527
+		},
+		{
+			"_id" : "Team of Rivals: The Political Genius of Abraham Lincoln",
+			"count" : 527
+		},
+		{
+			"_id" : "SuperFreakonomics: Global Cooling, Patriotic Prostitutes And Why Suicide Bombers Should Buy Life Insurance",
+			"count" : 527
+		},
+		{
+			"_id" : "The Princess Bride ",
+			"count" : 525
+		},
+		{
+			"_id" : "The Sun Also Rises",
+			"count" : 524
+		},
+		{
+			"_id" : "'Salem's Lot",
+			"count" : 523
+		},
+		{
+			"_id" : "Prince Caspian (Chronicles of Narnia, #2)",
+			"count" : 523
+		},
+		{
+			"_id" : "Stranger in a Strange Land",
+			"count" : 519
+		},
+		{
+			"_id" : "Anna Karenina",
+			"count" : 515
+		},
+		{
+			"_id" : "Foundation (Foundation, #1)",
+			"count" : 512
+		},
+		{
+			"_id" : "The Outsiders",
+			"count" : 509
+		},
+		{
+			"_id" : "American Assassin (Mitch Rapp, #1)",
+			"count" : 508
+		},
+		{
+			"_id" : "Red Storm Rising",
+			"count" : 507
+		},
+		{
+			"_id" : "A Dance with Dragons (A Song of Ice and Fire, #5)",
+			"count" : 504
+		},
+		{
+			"_id" : "A Patriot's History of the United States: From Columbus's Great Discovery to the War on Terror",
+			"count" : 503
+		},
+		{
+			"_id" : "The Godfather",
+			"count" : 502
+		},
+		{
+			"_id" : "East of Eden",
+			"count" : 502
+		},
+		{
+			"_id" : "Allegiant (Divergent, #3)",
+			"count" : 502
+		},
+		{
+			"_id" : "The Great Divorce",
+			"count" : 501
+		},
+		{
+			"_id" : "Agenda 21 (Agenda 21, #1)",
+			"count" : 499
+		},
+		{
+			"_id" : "How to Talk to a Liberal (If You Must): The World According to Ann Coulter",
+			"count" : 498
+		},
+		{
+			"_id" : "The Joy Luck Club",
+			"count" : 498
+		},
+		{
+			"_id" : "Congo",
+			"count" : 497
+		},
+		{
+			"_id" : "Starship Troopers",
+			"count" : 492
+		},
+		{
+			"_id" : "All Quiet on the Western Front",
+			"count" : 492
+		},
+		{
+			"_id" : "After America: Get Ready for Armageddon",
+			"count" : 490
+		},
+		{
+			"_id" : "Along Came a Spider (Alex Cross, #1)",
+			"count" : 490
+		},
+		{
+			"_id" : "The War of the Worlds",
+			"count" : 489
+		},
+		{
+			"_id" : "Bonhoeffer: Pastor, Martyr, Prophet, Spy",
+			"count" : 489
+		},
+		{
+			"_id" : "Outlander (Outlander, #1)",
+			"count" : 488
+		},
+		{
+			"_id" : "Heart of Darkness",
+			"count" : 487
+		},
+		{
+			"_id" : "The Silence of the Lambs  (Hannibal Lecter, #2)",
+			"count" : 485
+		},
+		{
+			"_id" : "Where the Red Fern Grows",
+			"count" : 485
+		},
+		{
+			"_id" : "All the Light We Cannot See",
+			"count" : 484
+		},
+		{
+			"_id" : "The Golden Compass (His Dark Materials, #1)",
+			"count" : 483
+		},
+		{
+			"_id" : "Prey",
+			"count" : 483
+		},
+		{
+			"_id" : "The Forgotten Man: A New History of the Great Depression",
+			"count" : 483
+		},
+		{
+			"_id" : "Emma",
+			"count" : 483
+		},
+		{
+			"_id" : "Sphere",
+			"count" : 482
+		},
+		{
+			"_id" : "One for the Money (Stephanie Plum, #1)",
+			"count" : 481
+		},
+		{
+			"_id" : "Watership Down",
+			"count" : 481
+		},
+		{
+			"_id" : "Wicked: The Life and Times of the Wicked Witch of the West (The Wicked Years, #1)",
+			"count" : 481
+		},
+		{
+			"_id" : "Sarah's Key",
+			"count" : 481
+		},
+		{
+			"_id" : "Marley and Me: Life and Love With the World's Worst Dog",
+			"count" : 479
+		},
+		{
+			"_id" : "Quiet: The Power of Introverts in a World That Can't Stop Talking",
+			"count" : 478
+		},
+		{
+			"_id" : "Three Cups of Tea: One Man's Mission to Promote Peace ... One School at a Time",
+			"count" : 477
+		},
+		{
+			"_id" : "The Art of Racing in the Rain",
+			"count" : 477
+		},
+		{
+			"_id" : "The Red Tent",
+			"count" : 476
+		},
+		{
+			"_id" : "The Chamber",
+			"count" : 475
+		},
+		{
+			"_id" : "Man's Search for Meaning",
+			"count" : 472
+		},
+		{
+			"_id" : "The Poisonwood Bible",
+			"count" : 471
+		},
+		{
+			"_id" : "A Tree Grows in Brooklyn",
+			"count" : 469
+		},
+		{
+			"_id" : "Wild: From Lost to Found on the Pacific Crest Trail",
+			"count" : 469
+		},
+		{
+			"_id" : "The Horse and His Boy (Chronicles of Narnia, #5)",
+			"count" : 469
+		},
+		{
+			"_id" : "Robinson Crusoe",
+			"count" : 468
+		},
+		{
+			"_id" : "The Little Prince",
+			"count" : 467
+		},
+		{
+			"_id" : "The Cat in the Hat",
+			"count" : 466
+		},
+		{
+			"_id" : "Who Moved My Cheese?",
+			"count" : 465
+		},
+		{
+			"_id" : "The Big Short: Inside the Doomsday Machine",
+			"count" : 464
+		},
+		{
+			"_id" : "Kiss the Girls (Alex Cross, #2)",
+			"count" : 463
+		},
+		{
+			"_id" : "The Last Battle (Chronicles of Narnia, #7)",
+			"count" : 461
+		},
+		{
+			"_id" : "Killing Patton: The Strange Death of World War II's Most Audacious General",
+			"count" : 454
+		},
+		{
+			"_id" : "The Testament",
+			"count" : 454
+		},
+		{
+			"_id" : "Guns, Germs, and Steel: The Fates of Human Societies",
+			"count" : 452
+		},
+		{
+			"_id" : "Band of Brothers: E Company, 506th Regiment, 101st Airborne from Normandy to Hitler's Eagle's Nest",
+			"count" : 449
+		},
+		{
+			"_id" : "The Silver Chair (Chronicles of Narnia, #4)",
+			"count" : 448
+		},
+		{
+			"_id" : "The Joy of Hate: How to Triumph over Whiners in the Age of Phony Outrage",
+			"count" : 448
+		},
+		{
+			"_id" : "Uncle Tom's Cabin",
+			"count" : 446
+		},
+		{
+			"_id" : "The Memory Keeper's Daughter",
+			"count" : 445
+		},
+		{
+			"_id" : "Flowers for Algernon",
+			"count" : 444
+		},
+		{
+			"_id" : "Siddhartha",
+			"count" : 443
+		},
+		{
+			"_id" : "Oliver Twist",
+			"count" : 442
+		},
+		{
+			"_id" : "The Host (The Host, #1)",
+			"count" : 442
+		},
+		{
+			"_id" : "Without Remorse (Jack Ryan Universe, #1)",
+			"count" : 441
+		},
+		{
+			"_id" : "The Sum of All Fears (Jack Ryan Universe, #7)",
+			"count" : 440
+		},
+		{
+			"_id" : "Moneyball: The Art of Winning an Unfair Game",
+			"count" : 440
+		},
+		{
+			"_id" : "The Constitution of the United States of America",
+			"count" : 439
+		},
+		{
+			"_id" : "Things That Matter: Three Decades of Passions, Pastimes and Politics",
+			"count" : 438
+		},
+		{
+			"_id" : "Ready Player One",
+			"count" : 438
+		},
+		{
+			"_id" : "Consent to Kill (Mitch Rapp, #8)",
+			"count" : 437
+		},
+		{
+			"_id" : "The Handmaid's Tale",
+			"count" : 437
+		},
+		{
+			"_id" : "The Case for Christ",
+			"count" : 435
+		},
+		{
+			"_id" : "The Thorn Birds",
+			"count" : 435
+		},
+		{
+			"_id" : "The Rise and Fall of the Third Reich: A History of Nazi Germany",
+			"count" : 433
+		},
+		{
+			"_id" : "A Midsummer Night's Dream",
+			"count" : 433
+		},
+		{
+			"_id" : "Midnight in the Garden of Good and Evil: A Savannah Story",
+			"count" : 431
+		}
+	],
+	"ok" : 1
+}
