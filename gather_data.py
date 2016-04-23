@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 import pprint
 from sys import exit
 from math import ceil
+import datetime
 
 
 class GoodReads():
@@ -40,7 +41,7 @@ class GoodReads():
 		}
 
 		self.AJAX_LIMIT    = 15
-		self.REQUEST_LIMIT = 1.5
+		self.REQUEST_LIMIT = .8
 		self.ITER_LIMIT    = 100
 		self.GOODNIGHT = 1800
 		self.READ_BOOKS_DB_DICT = {
@@ -48,20 +49,28 @@ class GoodReads():
 		"C_BOOKS_RATINGS" : "C_BOOKS_FINAL_PRIME"
 		}
 
-	def go_to_sleep(self, msg, time):
+	def go_to_sleep(self, msg, time_in_sec, verbose = True):
 
-		if msg: print (msg)
+		#msg : Msg you would like to display before sleep
+		#time: Duration of sleep
+		#verbose : Print statements?
 
-		if time > 30:
-			slices = time / 3
-			print ("TOTAL ELAPSED TIME TO FOLLOW")
-			for x in range(3):
-				print ("{x}/ 2: Sleep Duration {time}".format(x = x, time=slices))
-				sleep(slices)
+		def t_stamp():
+			return str(datetime.datetime.fromtimestamp(time()).strftime('%Y-%m-%d %H:%M:%S'))
+
+		if verbose and msg: print (msg)
+
+		time_str = "Sleeping for {sec}"
+		if time_in_sec > 30:
+			segment = time_in_sec / 3
+			for stage in range(3):
+				ts = t_stamp()
+				print ("{time_stamp} : {stage}/2".format(time_stamp = ts, stage = stage), time_str.format(sec=segment))
+				sleep(segment)
 		else:
-			print ("Sleeping for {time}".format(time=time))
-			sleep(time)
-
+			print (time_str.format(sec=time_in_sec), t_stamp())
+			sleep(time_in_sec)
+			
 	def csv_to_mongo(self):
 
 		def read_csv(info):
@@ -283,7 +292,7 @@ class GoodReads():
 					infinite_status = bs_obj.select("#infiniteStatus")[0].contents[0]
 				except Exception as e:
 					print (e)
-					print ("SHIT")
+					print ("Limit automatically set to 0")
 					return 0
 				remove_first_number = infinite_status.split("of ")[-1]
 				limit = remove_first_number.split(" loaded")[0]
@@ -385,7 +394,18 @@ class GoodReads():
 						self.go_to_sleep("request {i} made".format(i=i), self.REQUEST_LIMIT)
 						parse_page(res.text,url, user_url)
 						limit -= 1; i+=1
+				else:
+					log_object({
+						"user_url" : user_url,
+						"rating"   :  rating,
+						"status"   : "limit was zero"
+						})
 			else:
+				log_object({
+					"user_url" : user_url,
+					"rating"   :  rating,
+					"status"   : "rating_is_too_low"
+					})
 
 				print (user_url, rating)
 
