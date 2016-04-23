@@ -10,6 +10,7 @@ import pprint
 from sys import exit
 from math import ceil
 import datetime
+from time import time
 
 
 class GoodReads():
