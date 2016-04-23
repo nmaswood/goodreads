@@ -70,7 +70,7 @@ class GoodReads():
 		else:
 			print (time_str.format(sec=time_in_sec), t_stamp())
 			sleep(time_in_sec)
-			
+
 	def csv_to_mongo(self):
 
 		def read_csv(info):
@@ -395,12 +395,14 @@ class GoodReads():
 						parse_page(res.text,url, user_url)
 						limit -= 1; i+=1
 				else:
+					print ("Logged user as zero limit")
 					log_object({
 						"user_url" : user_url,
 						"rating"   :  rating,
 						"status"   : "limit was zero"
 						})
 			else:
+				print ("Logged user as low rating")
 				log_object({
 					"user_url" : user_url,
 					"rating"   :  rating,
