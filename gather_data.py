@@ -433,8 +433,8 @@ class GoodReads():
 				else:
 					print ("NON-UNIQUE ENTRY", user_url)
 
-		#run("L_BOOKS_RATINGS")
-		run("C_BOOKS_RATINGS")
+		run("L_BOOKS_RATINGS")
+		#run("C_BOOKS_RATINGS")
 
 if __name__ == "__main__":
 
