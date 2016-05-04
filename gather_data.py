@@ -527,10 +527,10 @@ class GoodReads():
 		def from_mongo():
 
 			data = self.db["BOOK_SHELVES"].find()
-			my_json = {d["book"] : d["shelves"]}
+			my_json = {d["book"] : d["shelves"] for d in data}
 			with open("shelves_new.json", 'w') as outfile:
 				json.dump(outfile, data)
-				
+
 		from_mongo()
 
 
