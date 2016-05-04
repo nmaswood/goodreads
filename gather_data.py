@@ -528,7 +528,7 @@ class GoodReads():
 
 			data = self.db["BOOK_SHELVES"].find()
 			my_json = {d["book"] : d["shelves"] for d in data}
-			with open("shelves_new.json", 'w') as outfile:
+			with open("shelves_new.json", 'wb') as outfile:
 				json.dump(outfile, data)
 
 		from_mongo()
