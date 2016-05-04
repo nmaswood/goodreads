@@ -527,8 +527,13 @@ class GoodReads():
 		def from_mongo():
 
 			data = self.db["BOOK_SHELVES"].find()
-			my_json = {d["book"] : d["shelves"] for d in data}
-			with open("shelves_new.json", 'wb') as outfile:
+
+			def process_shelf(d):
+				return [x[0] for x in d["shelves"]]
+
+			my_json = {d["book"] : process_shelf(d) for d in data}
+
+			with open("shelves_new.json", 'w') as outfile:
 				json.dump(outfile, data)
 
 		from_mongo()
