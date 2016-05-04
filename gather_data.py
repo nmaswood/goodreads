@@ -500,12 +500,11 @@ class GoodReads():
 					print ("foo")
 
 					try:
-						html    = get_page(book_id)
+						html = get_page(book_id)
 					except Exception as e:
 						self.go_to_sleep("ERROR due to " + e, self.GOODNIGHT)
 					else:
 						shelves = parse_xml(html)
-						print (shelves)
 						self.db["BOOK_SHELVES"].insert({
 							"book" : book,
 							"book_id": book_id,
