@@ -451,12 +451,19 @@ class GoodReads():
 
 		books = [v["_id"] for v in bar]
 
-		return [
-		(v.split(".")[-1],
-		 v.split("/show/")[1].split(".")[0]
-		)
-		for v in books if v is not None
-		]
+
+		def process_book_name(book_url):
+
+			if "." in book_url:
+				book_name = book_url.split(".")[-1]
+				book_id   = book_url.split("/show/")[-1].split(".")[0]
+			elif "-" in book_url:
+				book_name = "-".join(book_url.split("-")[1:])
+				book_id   = book_url.split("/show/")[-1].split("-")[0]
+			return (book_url, book_name, book_id)
+
+		return [process_book_name(book_url) for book_url in books if book_url is not None]
+
 
 	def get_book_shelves(self):
 
@@ -494,11 +501,9 @@ class GoodReads():
 
 			print ("hello")
 
-			for book, book_id in self.get_book_tuples():
+			for book_url, book_name, book_id in self.get_book_tuples():
 
-				if self.db["BOOK_SHELVES"].find_one({"book": book}) == None:
-
-					print ("Unique Entry")
+				if self.db["BOOK_SHELVES_PRIME"].find_one({"book_url": book_url}) == None:
 
 					try:
 						html = get_page(book_id)
@@ -506,14 +511,15 @@ class GoodReads():
 						self.go_to_sleep("ERROR due to " + e, self.GOODNIGHT)
 					else:
 						shelves = parse_xml(html)
-						self.db["BOOK_SHELVES"].insert({
-							"book" : book,
+						self.db["BOOK_SHELVES_PRIME"].insert({
+							"book_name" : book_name,
 							"book_id": book_id,
+							"book_url": book_url,
 							"shelves": shelves
 							})
-						self.go_to_sleep("Logged" + book, self.REQUEST_LIMIT)
+						self.go_to_sleep("Succesfully logged {}".format(book_name), self.REQUEST_LIMIT)
 				else:
-					print (book, "Non-unique entry")
+					print ("Non-unique entry: {}".format(book_name))
 		main()
 	def process_book_shelves(self):
 
@@ -536,9 +542,6 @@ class GoodReads():
 			with open("shelves_new.json", 'w') as outfile:
 				json.dump(my_json, outfile)
 
-		from_mongo()
-
-
 		def process_json():
 
 			my_dict = {}
@@ -549,10 +552,7 @@ class GoodReads():
 					parsed_json = json.loads(line)
 					book = book_url_to_book_name(parsed_json["book"])
 					shelves = parsed_json["shelves"]
-					print (book)
 					my_dict[book] = [x[0] for x in shelves]
-				print (x)
-			print (len(my_dict))
 			return my_dict
 
 		def  asssign_genre():
@@ -633,6 +633,4 @@ class GoodReads():
 if __name__ == "__main__":
 
 	g = GoodReads()
-	g.process_book_shelves()
-
-	#g.get_book_shelves()
+	g.get_book_shelves()
