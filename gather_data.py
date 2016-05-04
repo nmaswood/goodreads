@@ -11,7 +11,7 @@ from sys import exit
 from math import ceil
 import datetime
 from time import time
-
+import json
 
 class GoodReads():
 
@@ -433,16 +433,92 @@ class GoodReads():
 				else:
 					print ("NON-UNIQUE ENTRY", user_url)
 
-		run("L_BOOKS_RATINGS")
+		#run("L_BOOKS_RATINGS")
 		#run("C_BOOKS_RATINGS")
+	def get_book_tuples(self):
+
+		data = {}
+		filenames = ["liberal_4000_urls", "conservative_4000_urls"]
+
+
+		for filename in filenames:
+			with open (filename + ".json", 'r') as infile:
+				data[filename] = json.load(infile)
+
+		foo = [v for k,v in data.items()]
+
+		bar = foo[0]  + foo[1]
+
+		books = [v["_id"] for v in bar]
+
+		return [
+		(v.split(".")[-1],
+		 v.split("/show/")[1].split(".")[0]
+		)
+		for v in books if v is not None
+		]
+
+	def get_book_shelves(self):
+
+		def get_page(book_id):
+
+			link_url = "https://www.goodreads.com/book/show/{}.xml?key=uUFRZBYoKnyQcFbi0v5CMA".format(book_id)
+
+			headers = {
+				"Host": "www.goodreads.com",
+				"Connection": "keep-alive",
+				"Cache-Control": "max-age=0",
+				"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+				"Upgrade-Insecure-Requests": 1,
+				"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36",
+				"Accept-Encoding": "gzip, deflate, sdch",
+				"Accept-Language": "en-US,en;q=0.8",
+			}
+
+			result = requests.get(link_url, headers= headers, timeout= 200)
+
+			status_code = int(result.status_code)
+
+			return result.text if status_code == 200 else None
+
+
+
+		def parse_xml(html):
+
+			root = list(ET.fromstring(html).find('book').find("popular_shelves"))
+
+			return [(element.get("name"), element.get("count")) for element in root]
+
+
+		def main():
+
+			print ("hello")
+
+			for book, book_id in self.get_book_tuples():
+
+				#if self.db["BOOK_SHELVES"].find_one({"book": book}) == None:
+					print ("foo")
+
+					try:
+						html    = get_page(book_id)
+					except Exception as e:
+						self.go_to_sleep("ERROR due to " + e, self.GOODNIGHT)
+					else:
+						shelves = parse_xml(html)
+						print (shelves)
+						self.db["BOOK_SHELVES"].insert({
+							"book" : book,
+							"book_id": book_id,
+							"shelves": shelves
+							})
+						self.go_to_sleep("Logged" + book, self.REQUEST_LIMIT)
+				#else:
+					print (book, "Non-unique entry")
+		main()
+
 
 if __name__ == "__main__":
 
 	g = GoodReads()
 
-	try:
-		g.get_read_books()
-	except Exception as e:
-		print (e)
-		sleep(1800)
-		g.get_read_books()
+	g.get_book_shelves()
