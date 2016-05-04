@@ -515,10 +515,119 @@ class GoodReads():
 				else:
 					print (book, "Non-unique entry")
 		main()
+	def process_book_shelves(self):
+
+		def book_url_to_book_name(book):
+
+			return "-".join(book.split("/")[-1].split("-")[1:])
+
+		def book_id_to_book_name(book):
+			return book.split("/")[-1].split("-")[0]
+
+		def from_mongo():
+
+			data = self.db["BOOK_SHELVES"].find()
+			my_json = {d["book"] : d["shelves"]}
+			with open("shelves_new.json", 'w') as outfile:
+				json.dump(outfile, data)
+				
+		from_mongo()
+
+
+		def process_json():
+
+			my_dict = {}
+			with open("shelves.json", 'r') as infile:
+
+				for line in infile:
+					x +=1
+					parsed_json = json.loads(line)
+					book = book_url_to_book_name(parsed_json["book"])
+					shelves = parsed_json["shelves"]
+					print (book)
+					my_dict[book] = [x[0] for x in shelves]
+				print (x)
+			print (len(my_dict))
+			return my_dict
+
+		def  asssign_genre():
+
+			return_dict = {}
+
+			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction']
+			non_fiction = ['non-fiction', 'nonfiction', 'history', 'social-science', 'political','philosophy','business', 'science', 'psychology','biography','physics']
+			data = process_json()
+
+			print (len(data))
+
+			for book, shelf in data.items():
+
+				lower_book = book.lower()
+
+				for word in fiction:
+
+					if word in shelf:
+
+						return_dict[lower_book] = 'fiction'
+						break
+
+				for word in non_fiction:
+
+					if word in shelf:
+
+						return_dict[lower_book] = 'non-fiction'
+						break
+
+				if return_dict.get(lower_book) is None:
+					print (lower_book)
+					print (shelf)
+
+			return return_dict
+
+		def get_data(let):
+
+			letter = {"l" : "liberal", "c" : "conservative"}
+
+			with open(letter[let] + "_4000_books.json", 'r') as infile:
+				return json.load(infile)
+
+		def process_data(let):
+
+			data = get_data(let)
+			genre_dict = asssign_genre()
+
+			def format_book_name(_str):
+
+				if "(" in _str:
+					_str = _str.split("(")[0]
+
+				return "_".join(_str.lower().strip().split())
+
+			new_dict = {
+			format_book_name(k["_id"]):
+			{"count": k["count"]}
+			for k in data
+			if k["_id"] is not None
+			}
+
+
+			for k,v in new_dict.items():
+
+
+				pass
+			print (len(genre_dict))
+
+
+
+
+		#process_data("c")
+
+
 
 
 if __name__ == "__main__":
 
 	g = GoodReads()
+	g.process_book_shelves()
 
-	g.get_book_shelves()
+	#g.get_book_shelves()
