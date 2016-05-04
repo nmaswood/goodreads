@@ -42,7 +42,7 @@ class GoodReads():
 		}
 
 		self.AJAX_LIMIT    = 15
-		self.REQUEST_LIMIT = .8
+		self.REQUEST_LIMIT = 2.0
 		self.ITER_LIMIT    = 100
 		self.GOODNIGHT = 1800
 		self.READ_BOOKS_DB_DICT = {
@@ -499,7 +499,7 @@ class GoodReads():
 				if self.db["BOOK_SHELVES"].find_one({"book": book}) == None:
 
 					print ("Unique Entry")
-					
+
 					try:
 						html = get_page(book_id)
 					except Exception as e:
