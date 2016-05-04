@@ -534,10 +534,8 @@ class GoodReads():
 			my_json = {d["book"] : process_shelf(d) for d in data}
 			print (my_json)
 
-			"""
 			with open("shelves_new.json", 'w') as outfile:
 				json.dump(outfile, data)
-			"""
 
 		from_mongo()
 
