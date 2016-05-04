@@ -496,9 +496,10 @@ class GoodReads():
 
 			for book, book_id in self.get_book_tuples():
 
-				#if self.db["BOOK_SHELVES"].find_one({"book": book}) == None:
-					print ("foo")
+				if self.db["BOOK_SHELVES"].find_one({"book": book}) == None:
 
+					print ("Unique Entry")
+					
 					try:
 						html = get_page(book_id)
 					except Exception as e:
@@ -511,7 +512,7 @@ class GoodReads():
 							"shelves": shelves
 							})
 						self.go_to_sleep("Logged" + book, self.REQUEST_LIMIT)
-				#else:
+				else:
 					print (book, "Non-unique entry")
 		main()
 
