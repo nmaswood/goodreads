@@ -534,9 +534,16 @@ class GoodReads():
 
 				return book_url, shelf
 
-			return [extract_info(i) for i in shelf_data]
+			with open("shelves.json", 'w') as outfile:
+				json.dump(
+					[extract_info(i) for i in shelf_data],
+					outfile
+					)
 
 		def  create_genre_dict():
+
+			with open("shelves.json", 'r') as infile:
+				data = json.load(infile)
 
 
 			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction', "historical-fiction", "adult-fiction", "novels"]
@@ -556,7 +563,7 @@ class GoodReads():
 
 			with open('genres.json','w') as outfile:
 				json.dump({
-					book_url: classify(shelf) for book_url, shelf in mongo_to_genre_gen()},
+					book_url: classify(shelf) for book_url, shelf in data},
 					outfile)
 
 		def consolidate_data(political_party):
