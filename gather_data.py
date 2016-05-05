@@ -581,7 +581,7 @@ class GoodReads():
 				genre    = genres[book_url]
 				count    = item["count"]
 				db_entry = self.db[db_name].find_one({"book_url": book_url})
-				num_pages = db_entry['num_pages']
+				num_pages = db_entry.get('num_pages')
 				avg_rating = db_entry['avg_rating']
 				num_rating = db_entry['num_ratings']
 				isbn    = db_entry['isbn']
