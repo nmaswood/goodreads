@@ -548,23 +548,29 @@ class GoodReads():
 
 			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction', "historical-fiction", "adult-fiction", "novels"]
 			non_fiction = ['non-fiction', 'nonfiction', 'history', 'social-science', 'political','philosophy','business', 'science', 'psychology','biography','physics']
+			_dict = {}
 
-			def classify(shelf):
+			for book_url, shelf in data:
 
 				for fict_word, non_fict_word in zip(fiction, non_fiction):
 
-					if fict_word in shelf:
-						return 'fiction'
+					for word in shelf:
 
-					if non_fict_word in shelf:
-						return 'non-fiction'
+						if _dict.get(book_url) is None:
 
-				return 'unknown'
+							if word == fict_word:
+								_dict[book_url] = 'fiction'
+								break
+
+							if non_fict_word in shelf:
+								_dict[book_url] = 'non-fiction'
+								break
+						else:
+							break
+
 
 			with open('genres.json','w') as outfile:
-				json.dump({
-					book_url: classify(shelf) for book_url, shelf in data},
-					outfile)
+				json.dump(_dict, outfile)
 
 		def consolidate_data(political_party):
 
@@ -622,9 +628,9 @@ class GoodReads():
 					writer.writerow(item)
 
 		mongo_to_genre_gen()
-		#create_genre_dict()
-		#for p in ['c', 'l']:
-		#	consolidate_data(p)
+		create_genre_dict()
+		for p in ['c', 'l']:
+			consolidate_data(p)
 
 
 if __name__ == "__main__":
