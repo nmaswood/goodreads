@@ -1,4 +1,4 @@
-book_name,count,author,genre,isbn,isbn13,good_reads_url,num_pages,num_rating,avg_rating
+book_name,count,author,genre,isbn,isbn13,num_pages,num_rating,avg_rating
 1984,4973,Orwell; George,fiction,0451524934,9780451524935,298,1732320.0,4.12
 The Great Gatsby,4830,Fitzgerald; F. Scott,fiction,0743273567,9780743273565,192,2404927.0,3.87
 To Kill a Mockingbird,4705,Lee; Harper,fiction,0061120081,9780061120084,324,2800654.0,4.24

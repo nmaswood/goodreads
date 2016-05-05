@@ -1,4 +1,4 @@
-book_name,count,author,genre,isbn,isbn13,good_reads_url,num_pages,num_rating,avg_rating
+book_name,count,author,genre,isbn,isbn13,num_pages,num_rating,avg_rating
 The Hunger Games (The Hunger Games; #1),3777,Collins; Suzanne,fiction,0439023483,9780439023481,374,4145009.0,4.36
 To Kill a Mockingbird,3370,Lee; Harper,fiction,0061120081,9780061120084,324,2805689.0,4.24
 1984,3329,Orwell; George,fiction,0451524934,9780451524935,298,1735131.0,4.12
