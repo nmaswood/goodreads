@@ -575,6 +575,7 @@ class GoodReads():
 
 			for item in url_data:
 				book_url = item["_id"]
+				print (book_url)
 				genre    = genres[book_url]
 				count    = item["count"]
 				db_entry = self.db[db_name].find_one({"book_url": book_url})
