@@ -601,7 +601,7 @@ class GoodReads():
 					avg_rating,
 					))
 
-			with open("final_data_{}.json".format(political_party), 'w') as outfile:
+			with open("final_data_{}.csv".format(political_party), 'w') as outfile:
 				writer = csv.writer(outfile)
 				writer.writerow(["book_name", "count", "author", "genre", "isbn", "isbn13", "good_reads_url", "num_pages", "num_rating", "avg_rating"])
 
