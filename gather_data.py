@@ -551,7 +551,8 @@ class GoodReads():
 
 					if non_fict_word in shelf:
 						return 'non-fiction'
-
+						
+				print (shelf)
 				return 'unknown'
 
 			with open('genres.json','w') as outfile:
