@@ -548,7 +548,8 @@ class GoodReads():
 
 					if fict_word in shelf:
 						return 'fiction'
-					elif non_fict_word in shelf:
+
+					if non_fict_word in shelf:
 						return 'non-fiction'
 
 				return 'unknown'
@@ -614,8 +615,8 @@ class GoodReads():
 					writer.writerow(item)
 
 		create_genre_dict()
-		for p in ['c', 'l']:
-			consolidate_data(p)
+		#for p in ['c', 'l']:
+		#	consolidate_data(p)
 
 
 if __name__ == "__main__":
