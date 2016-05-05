@@ -614,7 +614,7 @@ class GoodReads():
 				for item in data_list:
 					writer.writerow(item)
 
-		#create_genre_dict()
+		create_genre_dict()
 		for p in ['c', 'l']:
 			consolidate_data(p)
 
