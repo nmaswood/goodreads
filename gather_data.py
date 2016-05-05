@@ -578,7 +578,6 @@ class GoodReads():
 			sorted_book_url_and_count = sorted(book_url_and_count, key = lambda x: x[1], reverse = True)
 
 			for book_url, count in sorted_book_url_and_count:
-				print (book_url)
 				genre    = genres[book_url]
 				db_entry = self.db[db_name].find_one({"book_url": book_url})
 				num_pages = db_entry.get('num_pages')
@@ -586,8 +585,8 @@ class GoodReads():
 				num_rating = db_entry['num_ratings']
 				isbn    = db_entry['isbn']
 				isbn_p  = db_entry['isbn13']
-				author  = db_entry['author'][0].strip()
-				book_name = db_entry['book_name']
+				author  = db_entry['author'][0].strip().replace(",",';')
+				book_name = db_entry['book_name'].replace(",", ';')
 				num_rating = num_rating.replace('"', '')
 				if "," in num_rating:
 					num_rating = float(''.join(num_rating.split(",")))
@@ -597,7 +596,7 @@ class GoodReads():
 				data_list.append((
 					book_name.replace(',', ';'),
 					count, 
-					"_".join(author.split(",")),
+					author,
 					genre,
 					isbn,
 					isbn_p,
