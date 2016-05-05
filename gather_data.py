@@ -593,35 +593,43 @@ class GoodReads():
 
 			for book_name, count in sorted_book_url_and_count:
 
-				db_entry = self.db[db_name].find_one({"book_name": book_name})
-				book_url = db_entry["book_url"]
-				num_pages = db_entry.get('num_pages')
-				avg_rating = db_entry['avg_rating']
-				num_rating = db_entry['num_ratings']
-				isbn    = db_entry['isbn']
-				isbn_p  = db_entry['isbn13']
-				author  = db_entry['author'][0].strip().replace(",",';')
-				book_name = db_entry['book_name'].replace(",", ';')
-				num_rating = num_rating.replace('"', '')
-				genre    = genres[book_url]
+				db_entries = self.db[db_name].find({"book_name": book_name})
+				for db_entry  in db_entries:
+					book_url = db_entry["book_url"]
+					genre = genres.get(book_url)
+					if genre is not None:
 
-				if "," in num_rating:
-					num_rating = float(''.join(num_rating.split(",")))
-				else:
-					num_rating = float(num_rating)
+						num_pages = db_entry.get('num_pages')
+						avg_rating = db_entry['avg_rating']
+						num_rating = db_entry['num_ratings']
+						isbn    = db_entry['isbn']
+						isbn_p  = db_entry['isbn13']
+						author  = db_entry['author'][0].strip().replace(",",';')
+						book_name = db_entry['book_name'].replace(",", ';')
+						num_rating = num_rating.replace('"', '')
+						genre    = genres[book_url]
 
-				data_list.append((
-					book_name.replace(',', ';'),
-					count, 
-					author,
-					genre,
-					isbn,
-					isbn_p,
-					#book_url,
-					num_pages,
-					num_rating,
-					avg_rating,
-					))
+						if "," in num_rating:
+							num_rating = float(''.join(num_rating.split(",")))
+						else:
+							num_rating = float(num_rating)
+
+						data_list.append((
+							book_name.replace(',', ';'),
+							count, 
+							author,
+							genre,
+							isbn,
+							isbn_p,
+							#book_url,
+							num_pages,
+							num_rating,
+							avg_rating,
+							))
+						break
+					else:
+						print ("NONE ENTRY")
+						print (book_url)
 
 			with open("final_data_{}.csv".format(political_party), 'w') as outfile:
 				writer = csv.writer(outfile)
