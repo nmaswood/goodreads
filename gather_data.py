@@ -573,8 +573,9 @@ class GoodReads():
 
 			data_list = []
 
+			url_data = url_data[1:]
+
 			for item in url_data:
-				print (item)
 				book_url = item["_id"]
 				print (book_url)
 				genre    = genres[book_url]
