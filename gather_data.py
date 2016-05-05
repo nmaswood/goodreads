@@ -574,12 +574,12 @@ class GoodReads():
 			data_list = []
 
 			url_data = url_data[1:]
+			book_url_and_count = [(item["_id"], item["count"]) for item in url_data]
+			sorted_book_url_and_count = sorted(book_url_and_count, key = lambda x: x[1])
 
-			for item in url_data:
-				book_url = item["_id"]
+			for book_url, count in sorted_book_url_and_count:
 				print (book_url)
 				genre    = genres[book_url]
-				count    = item["count"]
 				db_entry = self.db[db_name].find_one({"book_url": book_url})
 				num_pages = db_entry.get('num_pages')
 				avg_rating = db_entry['avg_rating']
@@ -590,12 +590,12 @@ class GoodReads():
 				book_name = db_entry['book_name']
 				data_list.append((
 					book_name,
-					author,
-					count,
+					count, 
+					"_".join(author.split(",")),
 					genre,
 					isbn,
 					isbn_p,
-					book_url,
+					#book_url,
 					num_pages,
 					num_rating,
 					avg_rating,
