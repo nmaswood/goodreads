@@ -583,7 +583,7 @@ class GoodReads():
 				db_entry = self.db[db_name].find_one({"book_url": book_url})
 				num_pags = db_entry['num_pages']
 				avg_rating = db_entry['avg_rating']
-				num_rating = db_entry['num_rating']
+				num_rating = db_entry['num_ratings']
 				isbn    = db_entry['isbn']
 				isbn_p  = db_entry['isbn13']
 				author  = db_entry['author'][0] if len(db_entry['author']) != 0 else None
