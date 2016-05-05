@@ -1,11 +1,4 @@
-MongoDB shell version: 2.4.9
-connecting to: GOODREADS
-{
-	"result" : [
-		{
-			"_id" : null,
-			"count" : 19224
-		},
+[
 		{
 			"_id" : "The Hunger Games (The Hunger Games, #1)",
 			"count" : 4120
@@ -16002,6 +15995,4 @@ connecting to: GOODREADS
 			"_id" : "Sex on the Moon: The Amazing Story Behind the Most Audacious Heist in History",
 			"count" : 86
 		}
-	],
-	"ok" : 1
-}
+]

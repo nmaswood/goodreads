@@ -1,7 +1,4 @@
-MongoDB shell version: 2.4.9
-connecting to: GOODREADS
-{
-	"result" : [
+[
 		{
 			"_id" : null,
 			"count" : 29308
@@ -16002,6 +15999,4 @@ connecting to: GOODREADS
 			"_id" : "The Poetry of Robert Frost (Collected Poems, Complete & Unabridged)",
 			"count" : 119
 		}
-	],
-	"ok" : 1
-}
+]

@@ -577,7 +577,7 @@ class GoodReads():
 			assert political_party in ["l", 'c']
 
 			db_name   = {"l"  : "L_BOOKS_FINAL_PRIME", "c" : "C_BOOKS_FINAL_PRIME"}[political_party]
-			json_name = {"c"  : 'conservative_4000_urls.json', 'l' : 'liberal_4000_urls.json'}[political_party]
+			json_name = {"c"  : 'conservative_4000_books.json', 'l' : 'liberal_4000_books.json'}[political_party]
 
 			with open("genres.json", 'r') as infile:
 				genres = json.load(infile)
@@ -591,9 +591,10 @@ class GoodReads():
 			book_url_and_count = [(item["_id"], item["count"]) for item in url_data]
 			sorted_book_url_and_count = sorted(book_url_and_count, key = lambda x: x[1], reverse = True)
 
-			for book_url, count in sorted_book_url_and_count:
-				genre    = genres[book_url]
-				db_entry = self.db[db_name].find_one({"book_url": book_url})
+			for book_name, count in sorted_book_url_and_count:
+
+				db_entry = self.db[db_name].find_one({"book_name": book_name})
+				book_url = db_entry["book_url"]
 				num_pages = db_entry.get('num_pages')
 				avg_rating = db_entry['avg_rating']
 				num_rating = db_entry['num_ratings']
@@ -602,6 +603,8 @@ class GoodReads():
 				author  = db_entry['author'][0].strip().replace(",",';')
 				book_name = db_entry['book_name'].replace(",", ';')
 				num_rating = num_rating.replace('"', '')
+				genre    = genres[book_url]
+
 				if "," in num_rating:
 					num_rating = float(''.join(num_rating.split(",")))
 				else:
@@ -627,8 +630,8 @@ class GoodReads():
 				for item in data_list:
 					writer.writerow(item)
 
-		mongo_to_genre_gen()
-		create_genre_dict()
+		#mongo_to_genre_gen()
+		#create_genre_dict()
 		for p in ['c', 'l']:
 			consolidate_data(p)
 
