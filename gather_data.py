@@ -530,11 +530,11 @@ class GoodReads():
 			def extract_info(i):
 
 				book_url  = i["book_url"]
-				shelf     = (x[0] for x in i["shelves"])
+				shelf     = [x[0] for x in i["shelves"]]
 
 				return book_url, shelf
 
-			return (extract_info(i) for i in shelf_data)
+			return [extract_info(i) for i in shelf_data]
 
 		def  create_genre_dict():
 
@@ -551,7 +551,7 @@ class GoodReads():
 
 					if non_fict_word in shelf:
 						return 'non-fiction'
-						
+
 				print (shelf)
 				return 'unknown'
 
