@@ -595,7 +595,7 @@ class GoodReads():
 					num_rating = float(num_rating)
 
 				data_list.append((
-					book_name.replace('"', ''),
+					book_name.replace(',', ';'),
 					count, 
 					"_".join(author.split(",")),
 					genre,
