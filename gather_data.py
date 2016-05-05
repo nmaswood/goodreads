@@ -539,7 +539,7 @@ class GoodReads():
 		def  create_genre_dict():
 
 
-			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction', "foo", "bar", "fubar"]
+			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction', "historical-fiction", "adult-fiction", "novels"]
 			non_fiction = ['non-fiction', 'nonfiction', 'history', 'social-science', 'political','philosophy','business', 'science', 'psychology','biography','physics']
 
 			def classify(shelf):
