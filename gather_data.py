@@ -575,7 +575,7 @@ class GoodReads():
 
 			url_data = url_data[1:]
 			book_url_and_count = [(item["_id"], item["count"]) for item in url_data]
-			sorted_book_url_and_count = sorted(book_url_and_count, key = lambda x: x[1])
+			sorted_book_url_and_count = sorted(book_url_and_count, key = lambda x: x[1], reverse = True)
 
 			for book_url, count in sorted_book_url_and_count:
 				print (book_url)
@@ -595,9 +595,9 @@ class GoodReads():
 					num_rating = float(num_rating)
 
 				data_list.append((
-					book_name,
+					book_name.replace('"', ''),
 					count, 
-					"_".join(author.split(",")),
+					"_".join(author.strip().split(",")),
 					genre,
 					isbn,
 					isbn_p,
