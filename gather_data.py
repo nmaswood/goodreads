@@ -612,4 +612,4 @@ class GoodReads():
 if __name__ == "__main__":
 
 	g = GoodReads()
-	g.get_book_shelves()
+	g.process_book_shelves()
