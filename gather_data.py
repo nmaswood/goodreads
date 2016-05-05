@@ -552,7 +552,6 @@ class GoodReads():
 					if non_fict_word in shelf:
 						return 'non-fiction'
 
-				print (shelf)
 				return 'unknown'
 
 			with open('genres.json','w') as outfile:
@@ -615,9 +614,9 @@ class GoodReads():
 				for item in data_list:
 					writer.writerow(item)
 
-		create_genre_dict()
-		#for p in ['c', 'l']:
-		#	consolidate_data(p)
+		#create_genre_dict()
+		for p in ['c', 'l']:
+			consolidate_data(p)
 
 
 if __name__ == "__main__":
