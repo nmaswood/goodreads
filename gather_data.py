@@ -588,7 +588,12 @@ class GoodReads():
 				isbn_p  = db_entry['isbn13']
 				author  = db_entry['author'][0] if len(db_entry['author']) != 0 else None
 				book_name = db_entry['book_name']
-				if "," in num_rating: num_rating = float(''.join(num_rating.split(",")))
+				num_rating = num_rating.replace('"', '')
+				if "," in num_rating:
+					num_rating = float(''.join(num_rating.split(",")))
+				else:
+					num_rating = float(num_rating)
+
 				data_list.append((
 					book_name,
 					count, 
