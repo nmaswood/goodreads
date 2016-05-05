@@ -592,7 +592,7 @@ class GoodReads():
 					genre,
 					isbn,
 					isbn_p,
-					book_url
+					book_url,
 					num_pages,
 					num_rating,
 					avg_rating,
