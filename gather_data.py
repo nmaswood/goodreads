@@ -609,7 +609,7 @@ class GoodReads():
 
 			with open("final_data_{}.csv".format(political_party), 'w') as outfile:
 				writer = csv.writer(outfile)
-				writer.writerow(["book_name", "count", "author", "genre", "isbn", "isbn13", "good_reads_url", "num_pages", "num_rating", "avg_rating"])
+				writer.writerow(["book_name", "count", "author", "genre", "isbn", "isbn13", "num_pages", "num_rating", "avg_rating"])
 
 				for item in data_list:
 					writer.writerow(item)
