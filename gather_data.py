@@ -621,9 +621,10 @@ class GoodReads():
 				for item in data_list:
 					writer.writerow(item)
 
-		create_genre_dict()
-		for p in ['c', 'l']:
-			consolidate_data(p)
+		mongo_to_genre_gen()
+		#create_genre_dict()
+		#for p in ['c', 'l']:
+		#	consolidate_data(p)
 
 
 if __name__ == "__main__":
