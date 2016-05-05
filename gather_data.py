@@ -523,111 +523,90 @@ class GoodReads():
 		main()
 	def process_book_shelves(self):
 
-		def book_url_to_book_name(book):
+		def mongo_to_genre_gen():
 
-			return "-".join(book.split("/")[-1].split("-")[1:])
+			shelf_data = self.db["BOOK_SHELVES_PRIME"].find(no_cursor_timeout = True)
 
-		def book_id_to_book_name(book):
-			return book.split("/")[-1].split("-")[0]
+			def extract_info(i):
 
-		def from_mongo():
+				book_url  = i["book_url"]
+				shelf     = (x[0] for x in shelves)
 
-			data = self.db["BOOK_SHELVES"].find()
+				return book_url, shelf
 
-			def process_shelf(d):
-				return [x[0] for x in d["shelves"]]
+			return (extract_info(i) for i in shelf_data)
 
-			my_json = {d["book"] : process_shelf(d) for d in data}
+		def  create_genre_dict():
 
-			with open("shelves_new.json", 'w') as outfile:
-				json.dump(my_json, outfile)
 
-		def process_json():
-
-			my_dict = {}
-			with open("shelves.json", 'r') as infile:
-
-				for line in infile:
-					x +=1
-					parsed_json = json.loads(line)
-					book = book_url_to_book_name(parsed_json["book"])
-					shelves = parsed_json["shelves"]
-					my_dict[book] = [x[0] for x in shelves]
-			return my_dict
-
-		def  asssign_genre():
-
-			return_dict = {}
-
-			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction']
+			fiction = ['fiction', 'fantasy', 'sci-fi', 'science-fiction', 'sciencefiction','contemporary-fiction', 'suspense-fiction', 'crime-fiction', "foo", "bar", "fubar"]
 			non_fiction = ['non-fiction', 'nonfiction', 'history', 'social-science', 'political','philosophy','business', 'science', 'psychology','biography','physics']
-			data = process_json()
 
-			print (len(data))
+			def classify(shelf):
 
-			for book, shelf in data.items():
+				for fict_word, non_fict_word in zip(fiction, non_fiction):
 
-				lower_book = book.lower()
+					if fict_word in shelf:
+						return 'fiction'
+					elif non_fict_word in shelf:
+						return 'non-fiction'
 
-				for word in fiction:
+				return 'unknown'
 
-					if word in shelf:
+			with open('genres.json','w') as outfile:
+				json.dump({
+					book_url: classify(shelf) for book_url, shelf in mongo_to_genre_gen()},
+					outfile)
 
-						return_dict[lower_book] = 'fiction'
-						break
+		def consolidate_data(political_party):
 
-				for word in non_fiction:
+			assert political_party in ["l", 'c']
 
-					if word in shelf:
+			db_name   = {"l"  : "L_BOOKS_FINAL_PRIME", "c" : "C_BOOKS_FINAL_PRIME"}[political_party]
+			json_name = {"c"  : 'conservative_4000_urls.json', 'l' : 'liberal_4000_urls.json'}[political_party]
 
-						return_dict[lower_book] = 'non-fiction'
-						break
+			with open("genres.json", 'r') as infile:
+				genres = json.load(infile)
 
-				if return_dict.get(lower_book) is None:
-					print (lower_book)
-					print (shelf)
+			with open(json_name,'r') as infile:
+				url_data = json.load(infile)
 
-			return return_dict
+			data_list = []
 
-		def get_data(let):
+			for item in url_data:
+				book_url = item["_id"]
+				genre    = genres[book_url]
+				count    = item["count"]
+				db_entry = self.db[db_name].find_one({"book_url": book_url})
+				num_pags = db_entry['num_pages']
+				avg_rating = db_entry['avg_rating']
+				num_rating = db_entry['num_rating']
+				isbn    = db_entry['isbn']
+				isbn_p  = db_entry['isbn13']
+				author  = db_entry['author'][0] if len(db_entry['author']) != 0 else None
+				book_name = db_entry['book_name']
+				data_list.append((
+					book_name,
+					author,
+					count,
+					genre,
+					isbn,
+					isbn_p,
+					book_url
+					num_pages,
+					num_rating,
+					avg_rating,
+					))
 
-			letter = {"l" : "liberal", "c" : "conservative"}
+			with open("final_data_{}.json".format(political_party), 'w') as outfile:
+				writer = csv.writer(outfile)
+				writer.writerow(["book_name", "count", "author", "genre", "isbn", "isbn13", "good_reads_url", "num_pages", "num_rating", "avg_rating"])
 
-			with open(letter[let] + "_4000_books.json", 'r') as infile:
-				return json.load(infile)
+				for item in data_list:
+					writer.writerow(item)
 
-		def process_data(let):
-
-			data = get_data(let)
-			genre_dict = asssign_genre()
-
-			def format_book_name(_str):
-
-				if "(" in _str:
-					_str = _str.split("(")[0]
-
-				return "_".join(_str.lower().strip().split())
-
-			new_dict = {
-			format_book_name(k["_id"]):
-			{"count": k["count"]}
-			for k in data
-			if k["_id"] is not None
-			}
-
-
-			for k,v in new_dict.items():
-
-
-				pass
-			print (len(genre_dict))
-
-
-
-
-		#process_data("c")
-
-
+		for p in ['c', 'l']:
+			consolidate_data(p)
 
 
 if __name__ == "__main__":
