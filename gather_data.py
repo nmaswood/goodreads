@@ -530,7 +530,7 @@ class GoodReads():
 			def extract_info(i):
 
 				book_url  = i["book_url"]
-				shelf     = (x[0] for x in shelves)
+				shelf     = (x[0] for x in i["shelves"])
 
 				return book_url, shelf
 
