@@ -216,15 +216,18 @@ class GatherReviews():
 		review_info = self.scrape_user_page(obj)
 
 		page_number = review_info['num_reviews']
-		user_url = obj['user_url']
-		total_pages = ceil(page_number / 100)
+		if page_number:
+			user_url = obj['user_url']
+			total_pages = ceil(page_number / 100)
 
-		for idx in range(1,total_pages):
-			print (idx / total_pages)
-			book_reviews = self.scrape_review_page(user_url, idx)
-			if book_reviews:
-				for book_review in book_reviews:
-					self.db[database_incoming].insert(book_review)
+			for idx in range(1,total_pages):
+				print (idx / total_pages)
+				book_reviews = self.scrape_review_page(user_url, idx)
+				if book_reviews:
+					for book_review in book_reviews:
+						self.db[database_incoming].insert(book_review)
+		else:
+			print ("No Reviews Present page_number value of {}".format(page_number))
 
 	def run(self):
 
