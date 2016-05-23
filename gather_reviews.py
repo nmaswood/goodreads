@@ -236,8 +236,6 @@ class GatherReviews():
 				for idx in range(1,total_pages + 1):
 					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
-					print ("fuckkk")
-					print (book_reviews)
 					if book_reviews:
 						for book_review in book_reviews:
 							book_review['user_url'] = user_url
@@ -245,13 +243,13 @@ class GatherReviews():
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
-			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {}".format(not review_info,  not unique,  not no_accidental_insert))
+			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {}".format(not bool(review_info),  not unique,  not no_accidental_insert))
 
 		print ("-----------------------------------------------\n")
 
 	def run(self):
 
-		for incoming, outgoing in [("C_BOOKS_RATINGS", "C_REVIEWS_TEST"), ("L_BOOKS_RATINGS","L_REVIEWS_TEST")]:
+		for incoming, outgoing in [("C_BOOKS_RATINGS", "C_REVIEWS"), ("L_BOOKS_RATINGS","L_REVIEWS")]:
 
 			for obj in self.db[incoming].find(no_cursor_timeout=True):
 				self.main(obj,outgoing)
