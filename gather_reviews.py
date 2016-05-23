@@ -230,10 +230,11 @@ class GatherReviews():
 				total_pages = ceil(page_number / 100)
 
 				for idx in range(1,total_pages):
-					print (idx / total_pages)
+					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
 					if book_reviews:
 						for book_review in book_reviews:
+							book_review['user_url'] = user_url
 							self.db[database_incoming].insert(book_review)
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
