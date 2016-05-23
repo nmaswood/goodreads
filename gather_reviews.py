@@ -92,7 +92,7 @@ class GatherReviews():
 			request_me = create_user_url(user_url)
 			try:
 				html = make_request(request_me)
-				go_to_sleep('Succesfully reached {}'.format(user_url), self.REQUEST_TIME_OUT)
+				go_to_sleep('Succesfully reached {} from scrape_user_page'.format(user_url), self.REQUEST_TIME_OUT)
 			except Exception as e:
 				go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
 				return False
@@ -204,18 +204,14 @@ class GatherReviews():
 
 		try:
 			html = make_request(url)
-			go_to_sleep('Succesfully reached {}'.format(user_url), self.REQUEST_TIME_OUT)
+			go_to_sleep('Succesfully reached {} from scrape_review_page'.format(user_url), self.REQUEST_TIME_OUT)
 		except:
 			go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
 			return False
 		else:
 			return parse_page(html)
 
-	def main(self, database_incoming, database_outgoing):
-
-		obj = { 'user_url' :'/user/show/413744-brendan'
-			  , 'rating' : 'really liked it' }
-
+	def main(self, obj, database_incoming, database_outgoing):
 
 		review_info = self.scrape_user_page(obj)
 
@@ -237,13 +233,11 @@ class GatherReviews():
 			for obj in self.db[incoming].find(no_cursor_timeout=True):
 
 				user_url = obj['user_url']
-				user_rating  = obj['rating']
-				print (user_url)
 
 				unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
 				if unique:
-					self.main(incoming, outgoing)
+					self.main(obj,incoming, outgoing)
 				else:
 					print ("Non-unique entry {}".format(user_url))
 
