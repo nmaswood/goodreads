@@ -235,7 +235,6 @@ class GatherReviews():
 		for incoming, outgoing in [("C_BOOKS_RATINGS", "C_REVIEWS_TEST"), ("L_BOOKS_RATINGS","L_REVIEWS_TEST")]:
 
 			for obj in self.db[incoming].find(no_cursor_timeout=True):
-				print (user_url)
 
 				user_url = obj['user_url']
 				user_rating  = obj['rating']
