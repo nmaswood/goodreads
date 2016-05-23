@@ -199,19 +199,23 @@ class GatherReviews():
 
 			books = BeautifulSoup(html, "lxml").select('#booksBody > tr')
 			return [process_book(book) for book in books ]
+			
+		#########
+
 
 		url = new_url(user_url, page_number)
 
 		try:
 			html = make_request(url)
 			go_to_sleep('Succesfully reached {} from scrape_review_page'.format(user_url), self.REQUEST_TIME_OUT)
-		except:
+		except Exception as e:
 			go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
 			return False
 		else:
 			return parse_page(html)
 
 	def main(self, obj, database_incoming, database_outgoing):
+		print "----------------------------------------\n"
 
 		review_info = self.scrape_user_page(obj)
 
@@ -235,6 +239,7 @@ class GatherReviews():
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
 			print ("No Reviews Present page_number value of {}".format(review_info))
+		print "-----------------------------------------------\n"
 
 	def run(self):
 
