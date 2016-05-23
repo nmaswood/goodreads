@@ -229,7 +229,7 @@ class GatherReviews():
 				user_url = obj['user_url']
 				total_pages = ceil(page_number / 100)
 
-				for idx in range(1,total_pages):
+				for idx in range(1,total_pages + 1):
 					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
 					if book_reviews:
