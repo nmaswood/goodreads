@@ -236,6 +236,7 @@ class GatherReviews():
 				for idx in range(1,total_pages + 1):
 					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
+					print (book_reviews)
 					if book_reviews:
 						for book_review in book_reviews:
 							book_review['user_url'] = user_url
@@ -243,7 +244,7 @@ class GatherReviews():
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
-			print ("No reviews: {} || Non-Unique : {} || valid : {}".format(review_info, unique, no_accidental_insert))
+			print ("No reviews: {} || Non-Unique : {} || valid : {}".format(review_info,  not unique,  not no_accidental_insert))
 
 		print ("-----------------------------------------------\n")
 
