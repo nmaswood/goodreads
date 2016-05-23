@@ -221,7 +221,7 @@ class GatherReviews():
 
 		if review_info:
 
-			page_number = review_info.get('new_reviews')
+			page_number = review_info.get('num_reviews')
 
 			if page_number is not None:
 
