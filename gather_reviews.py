@@ -219,14 +219,17 @@ class GatherReviews():
 
 		review_info = self.scrape_user_page(obj)
 		user_url = obj['user_url']
+
+		no_accidental_insert = obj.get("book_name" is None
+
 		unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
-		if review_info and unique:
+
+		if review_info and unique and no_accidental_insert:
 
 			page_number = review_info.get('num_reviews')
 
 			if page_number is not None:
-
 
 				user_url = obj['user_url']
 				total_pages = ceil(page_number / 100)
@@ -238,11 +241,11 @@ class GatherReviews():
 						print ("FUCKjklj\njklasjdfkalsjdflfuckjasdf")
 						for book_review in book_reviews:
 							book_review['user_url'] = user_url
-							self.db[database_incoming].insert(book_review)
+							self.db[database_outgoing].insert(book_review)
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
-			print ("No reviews: {} || Non-Unique : {}".format(review_info, unique))
+			print ("No reviews: {} || Non-Unique : {} || valid : {}".format(review_info, unique, no_accidental_insert))
 
 		print ("-----------------------------------------------\n")
 
