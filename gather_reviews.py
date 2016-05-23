@@ -215,8 +215,9 @@ class GatherReviews():
 
 		review_info = self.scrape_user_page(obj)
 
-		page_number = review_info['num_reviews']
-		if page_number:
+		if review_info:
+			
+			page_number = review_info['num_reviews']
 			user_url = obj['user_url']
 			total_pages = ceil(page_number / 100)
 
