@@ -199,7 +199,7 @@ class GatherReviews():
 
 			books = BeautifulSoup(html, "lxml").select('#booksBody > tr')
 			return [process_book(book) for book in books ]
-			
+
 		#########
 
 
@@ -215,7 +215,7 @@ class GatherReviews():
 			return parse_page(html)
 
 	def main(self, obj, database_incoming, database_outgoing):
-		print "----------------------------------------\n"
+		print ("----------------------------------------\n")
 
 		review_info = self.scrape_user_page(obj)
 
@@ -239,7 +239,8 @@ class GatherReviews():
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
 			print ("No Reviews Present page_number value of {}".format(review_info))
-		print "-----------------------------------------------\n"
+
+		print ("-----------------------------------------------\n")
 
 	def run(self):
 
