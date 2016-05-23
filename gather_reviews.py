@@ -220,7 +220,7 @@ class GatherReviews():
 		review_info = self.scrape_user_page(obj)
 		user_url = obj['user_url']
 
-		no_accidental_insert = obj.get("book_name" is None
+		no_accidental_insert = obj.get("book_name") is None
 
 		unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
