@@ -218,8 +218,10 @@ class GatherReviews():
 		print ("----------------------------------------\n")
 
 		review_info = self.scrape_user_page(obj)
+		user_url = obj['user_url']
+		unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
-		if review_info:
+		if review_info and unique:
 
 			page_number = review_info.get('num_reviews')
 
@@ -233,13 +235,14 @@ class GatherReviews():
 					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
 					if book_reviews:
+						print ("FUCKjklj\njklasjdfkalsjdflfuckjasdf")
 						for book_review in book_reviews:
 							book_review['user_url'] = user_url
 							self.db[database_incoming].insert(book_review)
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
-			print ("No Reviews Present page_number value of {}".format(review_info))
+			print ("No reviews: {} || Non-Unique : {}".format(review_info, unique))
 
 		print ("-----------------------------------------------\n")
 
@@ -248,15 +251,7 @@ class GatherReviews():
 		for incoming, outgoing in [("C_BOOKS_RATINGS", "C_REVIEWS_TEST"), ("L_BOOKS_RATINGS","L_REVIEWS_TEST")]:
 
 			for obj in self.db[incoming].find(no_cursor_timeout=True):
-
-				user_url = obj['user_url']
-
-				unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
-
-				if unique:
-					self.main(obj,incoming, outgoing)
-				else:
-					print ("Non-unique entry {}".format(user_url))
+				self.main(obj,incoming, outgoing)
 
 
 run = GatherReviews()
