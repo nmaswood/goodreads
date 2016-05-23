@@ -214,7 +214,7 @@ class GatherReviews():
 		else:
 			return parse_page(html)
 
-	def main(self, obj, database_incoming, database_outgoing):
+	def main(self, obj,outgoing):
 		print ("----------------------------------------\n")
 
 		review_info = self.scrape_user_page(obj)
@@ -223,7 +223,6 @@ class GatherReviews():
 		no_accidental_insert = obj.get("book_name") is None
 
 		unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
-
 
 		if review_info and unique and no_accidental_insert:
 
@@ -238,10 +237,9 @@ class GatherReviews():
 					print ("{} / {} pages".format(idx,total_pages))
 					book_reviews = self.scrape_review_page(user_url, idx)
 					if book_reviews:
-						print ("FUCKjklj\njklasjdfkalsjdflfuckjasdf")
 						for book_review in book_reviews:
 							book_review['user_url'] = user_url
-							self.db[database_outgoing].insert(book_review)
+							self.db[outgoing].insert(book_review)
 			else:
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
@@ -254,7 +252,7 @@ class GatherReviews():
 		for incoming, outgoing in [("C_BOOKS_RATINGS", "C_REVIEWS_TEST"), ("L_BOOKS_RATINGS","L_REVIEWS_TEST")]:
 
 			for obj in self.db[incoming].find(no_cursor_timeout=True):
-				self.main(obj,incoming, outgoing)
+				self.main(obj,outgoing)
 
 
 run = GatherReviews()
