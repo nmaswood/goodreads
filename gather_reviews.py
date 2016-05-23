@@ -232,7 +232,7 @@ class GatherReviews():
 						for book_review in book_reviews:
 							self.db[database_incoming].insert(book_review)
 			else:
-				print ("Misc error in grabbing profile of {}".format(user_url))
+				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
 			print ("No Reviews Present page_number value of {}".format(review_info))
 
