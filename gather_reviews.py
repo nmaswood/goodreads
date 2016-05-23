@@ -239,11 +239,11 @@ class GatherReviews():
 				user_url = obj['user_url']
 				user_rating  = obj['rating']
 				print (user_url)
-				
+
 				unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
 				if unique:
-					main(incoming, outgoing)
+					self.main(incoming, outgoing)
 				else:
 					print ("Non-unique entry {}".format(user_url))
 
