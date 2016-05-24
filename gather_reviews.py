@@ -252,7 +252,14 @@ class GatherReviews():
 				print ("Misc error in grabbing value of page_number is: {}".format(page_number))
 		else:
 			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {}".format(not bool(review_info),  not unique,  not no_accidental_insert))
-
+			self.db[outgoing].insert({
+				'user_url' : user_url,
+				'status' : 'fucked up',
+				'unique' : unique,
+				'review_info' : review_info, 
+				'rating' : obj.get('rating')
+				'no_accidental_insert' : no_accidental_insert,
+			})
 		print ("-----------------------------------------------\n")
 
 	def run(self):
