@@ -190,9 +190,12 @@ class GatherReviews():
 				try:
 					data["review"] = reviews[0] if len(reviews) == 1 else reviews[1]
 				except Exception as e:
+					
+					print ("REVIEWS was {}".format(reviews))
+					print ("WARNING JUST GOT THIS EXCEPTION WHILE TRYING TO GET REVIEW {}".format(e))
+
 					reviews.append("!@#ERROR!@#")
 					data['review'] = reviews
-					print ("WARNING JUST GOT THIS EXCEPTION WHILE TRYING TO GET REVIEW {}".format(e))
 
 				for key, value in functions.items():
 
