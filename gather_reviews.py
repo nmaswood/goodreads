@@ -90,14 +90,24 @@ class GatherReviews():
 		if positive_rating(rating):
 
 			request_me = create_user_url(user_url)
+
 			try:
 				html = make_request(request_me)
 				go_to_sleep('Succesfully reached {} from scrape_user_page'.format(user_url), self.REQUEST_TIME_OUT)
+				return extract_data(html)
+
+			except Exception as e:
+				go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
+
+			try:
+				html = make_request(request_me)
+				go_to_sleep('Succesfully reached {} from scrape_user_page'.format(user_url), self.REQUEST_TIME_OUT)
+				return extract_data(html)
+
 			except Exception as e:
 				go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
 				return False
-			else:
-				return extract_data(html)
+
 		else:
 			print ("Non-positive rating of {} from {}".format(rating, user_url))
 			return False
@@ -214,13 +224,28 @@ class GatherReviews():
 		url = new_url(user_url, page_number)
 
 		try:
+
 			html = make_request(url)
 			go_to_sleep('Succesfully reached {} from scrape_review_page'.format(user_url), self.REQUEST_TIME_OUT)
+			return parse_page(html)
+
 		except Exception as e:
+
+			go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
+
+		try:
+
+			html = make_request(url)
+			go_to_sleep('Succesfully reached {} from scrape_review_page'.format(user_url), self.REQUEST_TIME_OUT)
+			return parse_page(html)
+
+		except Exception as e:
+
 			go_to_sleep("Failed during scrape_user_page due to {}".format(e), self.ERROR_TIMEOUT)
 			return False
-		else:
-			return parse_page(html)
+
+
+
 
 	def main(self, obj,outgoing):
 		print ("----------------------------------------\n")
