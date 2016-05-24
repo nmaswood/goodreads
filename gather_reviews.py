@@ -256,7 +256,7 @@ class GatherReviews():
 				'status' : 'fucked up',
 				'unique' : unique,
 				'review_info' : review_info, 
-				'rating' : obj.get('rating')
+				'rating' : obj.get('rating'),
 				'no_accidental_insert' : no_accidental_insert,
 				'page_number': page_number
 				})
@@ -269,7 +269,7 @@ class GatherReviews():
 				'status' : 'fucked up',
 				'unique' : unique,
 				'review_info' : review_info, 
-				'rating' : obj.get('rating')
+				'rating' : obj.get('rating'),
 				'no_accidental_insert' : no_accidental_insert,
 			})
 			print ("Error: non-unqiue, bad rating or shitty entry logged to {}".format(outgoing))
