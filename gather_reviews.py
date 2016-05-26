@@ -84,10 +84,10 @@ class GatherReviews():
 
 			return d
 
-		user_url = mongo_object['user_url']
-		rating   = mongo_object['rating']
+		user_url = mongo_object.get('user_url')
+		rating   = mongo_object.get('rating')
 
-		if positive_rating(rating):
+		if positive_rating(rating) and user_url is not None:
 
 			request_me = create_user_url(user_url)
 
