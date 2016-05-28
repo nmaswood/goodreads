@@ -251,13 +251,13 @@ class GatherReviews():
 		print ("----------------------------------------\n")
 
 		review_info = self.scrape_user_page(obj)
-		user_url = obj['user_url']
 
+		user_url = obj.get('user_url')
 		no_accidental_insert = obj.get("book_name") is None
 
 		unique = self.db[outgoing].find_one({"user_url" : user_url}) is None
 
-		if review_info and unique and no_accidental_insert:
+		if review_info and unique and no_accidental_insert and user_url:
 
 			page_number = review_info.get('num_reviews')
 
@@ -288,7 +288,7 @@ class GatherReviews():
 				print ("Error: non-unqiue, bad rating or shitty entry logged to {}".format(outgoing))
 
 		else:
-			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {}".format(not bool(review_info),  not unique,  not no_accidental_insert))
+			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {} || no_url : {}".format(not bool(review_info),  not unique,  not no_accidental_insert, bool(user_url)))
 			self.db[outgoing].insert({
 				'user_url' : user_url,
 				'status' : 'fucked up',
