@@ -288,7 +288,7 @@ class GatherReviews():
 				print ("Error: non-unqiue, bad rating or shitty entry logged to {}".format(outgoing))
 
 		else:
-			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {} || no_url : {}".format(not bool(review_info),  not unique,  not no_accidental_insert, bool(user_url)))
+			print ("No Reviews/ Bad Rating: {} || Is-not-unique : {} || is-not-valid : {} || no_url : {}".format(not bool(review_info),  not unique,  not no_accidental_insert,  not bool(user_url)))
 			self.db[outgoing].insert({
 				'user_url' : user_url,
 				'status' : 'fucked up',
