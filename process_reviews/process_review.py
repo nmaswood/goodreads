@@ -122,16 +122,16 @@ class process():
     def main(self):
 
         d = self.reviews_per_book('C')
-        self.write_to_file(d, 'DISTINCTIVE_CONSERVATIVE')
+        self.write_to_file(d, 'ALL_DISTINCTIVE_CONSERVATIVE')
 
         d = self.reviews_per_book('L')
-        self.write_to_file(d, 'DISTINCTIVE_LIBERAL')
+        self.write_to_file(d, 'ALL_DISTINCTIVE_LIBERAL')
 
-        d = self.reviews_per_book('C', neither = True )
-        self.write_to_file(d, 'NEITHER_CONSERVATIVE')
+        #d = self.reviews_per_book('C', neither = True )
+        #self.write_to_file(d, 'NEITHER_CONSERVATIVE')
 
-        d = self.reviews_per_book('L', neither = True)
-        self.write_to_file(d, 'NEITHER_LIBERAL')
+        #d = self.reviews_per_book('L', neither = True)
+        #self.write_to_file(d, 'NEITHER_LIBERAL')
 
 
 
