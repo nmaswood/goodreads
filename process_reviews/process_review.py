@@ -71,7 +71,7 @@ class process():
 
         db = {'L' : self.incoming_l, 'R' : self.incoming_r}
 
-        for review_item in db.find(no_cursor_timeout = True):
+        #for review_item in db.find(no_cursor_timeout = True):
 
         i_o_instance = i_o()
 
