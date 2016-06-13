@@ -6,7 +6,7 @@ class filter_reviews():
     def __init__(self):
 
         client  = MongoClient('localhost', 27017)
-        self.db = client['GOODREADS']
+        db = client['GOODREADS']
 
         self.incoming_l = db['L_REVIEWS']
         self.incoming_r = db['R_REVIEWS']
