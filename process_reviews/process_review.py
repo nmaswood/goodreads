@@ -119,10 +119,9 @@ class process():
 
             from_db = db.find({"book_name" : book_name})
 
-            print (list(from_db))
+            d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None' and type(x) == str]
 
-
-            d[book_name] += [x.get('review') for x in from_db if x.get('review') != 'None' and type(x) == str]
+            print (d[book_name])
 
         return dict(d)
 
@@ -143,6 +142,7 @@ class process():
             with open(folder + '/{}'.format(i), 'w') as out:
 
                 try:
+                    print (v)
                     out.write(' '.join(v))
                 except Exception as e:
                     print (e)
