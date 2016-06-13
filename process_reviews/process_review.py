@@ -113,6 +113,9 @@ class process():
         else:
             book_names = i_o_instance.get_top_50_c()
 
+
+        d = {}
+
         for book_name in book_names:
 
             from_db = db.find({"book_name" : book_name})
