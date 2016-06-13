@@ -113,11 +113,13 @@ class process():
         else:
             book_names = i_o_instance.get_top_50_c()
 
-        d = defaultdict(list)
-
         for book_name in book_names:
 
             from_db = db.find({"book_name" : book_name})
+
+            if d.get(book_name) is not None:
+                print ("THE FUCK?")
+                exit(1)
 
             d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None']
 
