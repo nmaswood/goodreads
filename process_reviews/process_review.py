@@ -119,6 +119,9 @@ class process():
 
             from_db = db.find({"book_name" : book_name})
 
+            print (from_db)
+
+
             d[book_name] += [x.get('review') for x in from_db if x.get('review') != 'None' and type(x) == str]
 
         return dict(d)
@@ -159,14 +162,14 @@ class process():
         d = self.reviews_per_book('C')
         self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
 
-        d = self.reviews_per_book('L')
-        self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
+        #d = self.reviews_per_book('L')
+        #self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
 
-        d = self.reviews_per_book('C', neither = True )
-        self.write_to_file(d, 'NEITHER_CONSERVATIVE')
+        #d = self.reviews_per_book('C', neither = True )
+        #self.write_to_file(d, 'NEITHER_CONSERVATIVE')
 
-        d = self.reviews_per_book('L', neither = True)
-        self.write_to_file(d, 'NEITHER_LIBERAL')
+        #d = self.reviews_per_book('L', neither = True)
+        #self.write_to_file(d, 'NEITHER_LIBERAL')
 
 run = process()
 run.main()
