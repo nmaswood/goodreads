@@ -80,7 +80,7 @@ class process():
 
         for review_item in db.find(no_cursor_timeout = True):
 
-            book_name, review = review_item.get('book_name'). review_item.get('review')
+            book_name, review = review_item.get('book_name'), review_item.get('review')
 
             d[book_name].append(review)
 
