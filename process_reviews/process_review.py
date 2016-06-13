@@ -31,6 +31,10 @@ class filter_reviews():
                     db_out.insert(item)
 
 
+run = filter_reviews()
+run.main()
+
+
 class i_o():
 
     def get_from_csv(self, the_type):
