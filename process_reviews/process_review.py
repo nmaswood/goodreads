@@ -109,11 +109,11 @@ class process():
         i_o_instance = i_o()
 
         if neither:
-            book_names = self.get_neutrals
+            book_names = i_o_instance.get_neutrals
         elif category == 'L':
-            book_names = self.get_top_50_l()
+            book_names = i_o_instance.get_top_50_l()
         else:
-            book_names = self.get_top_50_c()
+            book_names = i_o_instance.get_top_50_c()
 
         d = defaultdict(list)
 
