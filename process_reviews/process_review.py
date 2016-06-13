@@ -181,7 +181,12 @@ class process():
                     try:
                         out_prime.write(review)
                     except:
-                        print (v)
+                        if v == []:
+                            pass
+                        else:
+                            for k, x in enumerate(v):
+                                with open(folder + '/{}-{}-{}'.format(k_prime, j, k), 'w') as out_prime_prime:
+                                    out_prime_prime.write(x)
 
         with open (folder + "_KEYS", 'w') as out:
             for k,v in id_book.items():
