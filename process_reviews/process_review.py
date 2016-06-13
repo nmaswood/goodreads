@@ -76,7 +76,7 @@ class process():
         if neither:
             category = 'N'
 
-        books_names  = i_o_instance.get_name(category)
+        books_names  = i_o_instance.get_name(category)[:50]
 
         d = defaultdict(list)
 
@@ -122,10 +122,10 @@ class process():
     def main(self):
 
         d = self.reviews_per_book('C')
-        self.write_to_file(d, 'ALL_DISTINCTIVE_CONSERVATIVE')
+        self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
 
         d = self.reviews_per_book('L')
-        self.write_to_file(d, 'ALL_DISTINCTIVE_LIBERAL')
+        self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
 
         #d = self.reviews_per_book('C', neither = True )
         #self.write_to_file(d, 'NEITHER_CONSERVATIVE')
