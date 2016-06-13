@@ -49,13 +49,48 @@ class i_o():
             reader = csv.reader(csv_infile)
             return [l for l in reader if l]
 
-    def get_column(self, matrix, i):
+    def get_top_50_l(self):
 
-        return [el[i] for el in matrix]
+        # Sorted by third value indexing at 0
 
-    def get_name(self,the_type):
+        all_liberals = self.get_from_csv('L')[1:]
 
-        return self.get_column(self.get_from_csv(the_type),1)[1:]
+        top_fifty_books = sorted([(x[1], int(x[3])) for x in all_liberals], key = lambda x: x[1], reverse = True)[:50]
+
+        return [x[0].replace(";", ",") for x in top_fifty_books]
+
+    def get_top_50_c(self):
+
+        # Sorted by second value indexing at 2
+
+        all_c = self.get_from_csv('C')[1:]
+
+        top_fifty_books = sorted([(x[1], int(x[2])) for x in all_c], key = lambda x: x[1], reverse = True)[:50]
+
+        return [x[0].replace(";", ',') for x in top_fifty_books]
+
+    def get_neutrals(self):
+
+
+        # Skipped 648,Miss Peregrine_Ñés Home for Peculiar Children (Miss Peregrine_Ñés Peculiar Children; #1),426,678,1.110940843,0.09238193,
+
+        with open('Distinctive_Neither_Top100_updated.csv', 'rb') as infile:
+            next(infile)
+
+            l = [x.split(b',')[1] for x in infile]
+
+            words = []
+
+            for x in l:
+
+                try:
+                    words.append(x.decode('utf-8').replace(";", ','))
+                except:
+                    pass
+
+            return words
+
+run = i_o()
 
 class process():
 
@@ -74,20 +109,19 @@ class process():
         i_o_instance = i_o()
 
         if neither:
-            category = 'N'
-
-        books_names  = i_o_instance.get_name(category)[:50]
+            book_names = self.get_neutrals
+        elif category == 'L':
+            book_names = self.get_top_50_l()
+        else:
+            book_names = self.get_top_50_c()
 
         d = defaultdict(list)
 
-        for review_item in db.find(no_cursor_timeout = True):
+        for book_name in book_names:
 
-            book_name, review = review_item.get('book_name'), review_item.get('review')
+            from_db = db.find({"book_name" : book_name})
 
-            if review is None or type(review) == list:
-                continue
-
-            d[book_name].append(review)
+            d[book_name] += [x.get('review') for x in from_db if x.get('review') is not None]
 
         return dict(d)
 
@@ -121,20 +155,17 @@ class process():
 
     def main(self):
 
-        #d = self.reviews_per_book('C')
-        #self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
+        d = self.reviews_per_book('C')
+        self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
 
-        #d = self.reviews_per_book('L')
-        #self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
+        d = self.reviews_per_book('L')
+        self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
 
         d = self.reviews_per_book('C', neither = True )
         self.write_to_file(d, 'NEITHER_CONSERVATIVE')
 
-        #d = self.reviews_per_book('L', neither = True)
-        #self.write_to_file(d, 'NEITHER_LIBERAL')
-
-
-
+        d = self.reviews_per_book('L', neither = True)
+        self.write_to_file(d, 'NEITHER_LIBERAL')
 
 run = process()
 run.main()
