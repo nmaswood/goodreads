@@ -92,13 +92,22 @@ class process():
 
         if not os.path.exists(folder): os.mkdir(folder)
 
+        id_book = {}
+
         for k,v in d.items():
+
+            id_book[i] = k
 
             k_prime = k.replace("/", "_")
 
-            with open(folder + '/{}|{}'.format(i,k_prime), 'w') as out:
+            with open(folder + '/{}'.format(i), 'w') as out:
 
                 out.write(' '.join(v))
+
+        with open(folder + '_KEYS', 'w') as out:
+
+            for k,v in id_book:
+                outfile.write("{}:{}\n".format(k,v))
 
     def main(self):
 
