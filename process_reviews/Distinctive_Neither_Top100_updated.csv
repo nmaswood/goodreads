@@ -1,0 +1,109 @@
+,title,con.count,lib.count,fish.odds,fish.p,have?
+1553,To Kill a Mockingbird,3684,5221,0.989062673,0.611578174,Y
+4,1984,3489,5198,1.040090735,0.074574417,X
+113,Animal Farm,3378,4844,1.000851207,0.973096945,X
+605,Lord of the Flies,2456,3669,1.042864638,0.109421971,X
+1142,The Girl with the Dragon Tattoo (Millennium; #1),2408,3517,1.019474631,0.474918767,Y
+943,The Adventures of Huckleberry Finn (Tom Sawyer & Huckleberry Finn; #2),1991,2777,0.973374313,0.360694407,X
+817,Romeo and Juliet,1769,2601,1.026297111,0.405718678,Y
+537,Jane Eyre,1493,2071,0.968049404,0.339871113,Y
+406,Frankenstein,1463,2172,1.036291621,0.295389756,Y
+998,The Book Thief,1456,1979,0.948541517,0.126595641,Y
+1597,Water for Elephants,1416,1962,0.966970486,0.335677504,
+449,Great Expectations,1167,1564,0.935251998,0.086697594,Y
+64,A Thousand Splendid Suns,1074,1622,1.054189586,0.182815332,Y
+1402,The Secret Life of Bees,1005,1419,0.985430071,0.725461525,
+3,11/22/63,985,1465,1.038139361,0.365996008,
+75,A Wrinkle in Time (A Wrinkle in Time Quintet; #1),981,1494,1.063059598,0.140988834,X
+1636,World War Z: An Oral History of the Zombie War,957,1451,1.058342353,0.177888325,
+1257,The Lord of the Rings (The Lord of the Rings; #1-3),907,1232,0.94797541,0.226493482,
+651,Moby-Dick; or; The Whale,906,1286,0.990667954,0.828064856,Y
+1146,The Giving Tree,868,1223,0.983367597,0.705421444,
+1166,The Guernsey Literary and Potato Peel Pie Society,798,1063,0.929626796,0.119809761,
+1609,Where the Wild Things Are,796,1152,1.010110024,0.835746734,
+1321,The Outsiders,733,1010,0.961627751,0.421619198,
+343,Emma,698,974,0.97388279,0.601542298,Y
+67,A Tree Grows in Brooklyn,674,954,0.98787865,0.82058038,X
+1504,The War of the Worlds,652,876,0.937664888,0.221481568,X
+1368,The Red Tent,641,956,1.040987122,0.445280459,
+46,A Midsummer Night's Dream,629,991,1.099776767,0.065116861,Y
+109,And Then There Were None,615,798,0.905534076,0.065873264,X
+1283,The Memory Keeper's Daughter,609,797,0.913318309,0.092781862,
+751,Persuasion,608,814,0.93435515,0.205193701,Y
+210,Charlie and the Chocolate Factory (Charlie Bucket; #1),598,945,1.103092055,0.0623391,Y
+791,Rebecca,575,773,0.938225705,0.256203339,X
+456,Gulliver's Travels,572,762,0.929715158,0.190797935,Y
+7,2001: A Space Odyssey (Space Odyssey; #1),560,867,1.080677104,0.15381026,X
+1156,The Good Earth (House of Earth; #1),542,767,0.987671098,0.822199554,X
+307,Divine Secrets of the Ya-Ya Sisterhood,539,738,0.955618828,0.425764185,
+181,Bridget Jones's Diary (Bridget Jones; #1),520,805,1.080574685,0.171185146,
+430,Girl With a Pearl Earring,520,770,1.033535183,0.571370421,X
+314,Don Quixote,520,767,1.029503824,0.629974374,Y
+513,I; Robot (Robot; #0.1),517,791,1.067926135,0.249176154,X
+1328,The Pearl,505,805,1.112713378,0.063697087,X
+238,Cold Mountain,500,734,1.024611656,0.685413136,
+1178,The Historian,493,735,1.040592984,0.504666137,
+1021,The Canterbury Tales,479,708,1.031653094,0.615944756,Y
+714,Oh; The Places You'll Go!,448,567,0.883257035,0.051569798,Y
+1291,The Moon is a Harsh Mistress,432,600,0.96933245,0.635041312,
+1244,The Light Between Oceans,431,565,0.914882077,0.166104897,
+1042,The Clan of the Cave Bear (Earth's Children; #1),430,550,0.892649552,0.079516576,X
+734,Orphan Train,428,560,0.91314098,0.16428297,
+180,Bridge to Terabithia,428,548,0.8935606,0.084561406,
+648,Miss Peregrine_Ñés Home for Peculiar Children (Miss Peregrine_Ñés Peculiar Children; #1),426,678,1.110940843,0.09238193,
+1190,The Hound of the Baskervilles (Sherlock Holmes; #5),416,564,0.946232789,0.398569718,Y
+1472,The Thirteenth Tale,416,553,0.927749806,0.253086848,
+86,Alice in Wonderland (Alice's Adventures in Wonderland; #1),415,581,0.977100638,0.723165287,Y
+704,Northanger Abbey,403,516,0.893581159,0.093596103,Y
+628,Mansfield Park,400,537,0.936951585,0.33551144,Y
+1094,The Drawing of the Three (The Dark Tower; #2),399,556,0.972546389,0.669080419,
+1619,Winnie-the-Pooh (Winnie-the-Pooh; #1),396,523,0.921732484,0.227377485,Y
+741,Paradise Lost,391,519,0.926383262,0.266098586,Y
+547,Julius Caesar (Oxford School Shakespeare),388,601,1.081176974,0.244516627,Y
+25,A Connecticut Yankee in King Arthur's Court,388,538,0.967733227,0.640028652,Y
+276,Dead Until Dark (Sookie Stackhouse; #1),381,528,0.96719449,0.636922108,
+996,The Bonfire of the Vanities,380,601,1.103962924,0.13544838,
+669,Much Ado About Nothing,373,595,1.113462051,0.109326321,Y
+634,Me Before You (Me Before You; #1),370,551,1.039407688,0.569287702,
+1311,The No. 1 Ladies' Detective Agency  (No. 1 Ladies' Detective Agency; #1),363,533,1.024828534,0.73421769,
+60,A Study in Scarlet (Sherlock Holmes; #1),363,459,0.882461594,0.076310254,Y
+1527,The Wise Man's Fear (The Kingkiller Chronicle; #2),356,545,1.068546223,0.343042067,
+1037,The Chosen,355,455,0.894492494,0.11617339,
+665,Mr. Mercedes (Bill Hodges Trilogy; #1),352,492,0.97551478,0.726505504,
+471,Hatchet (Brian's Saga; #1),349,441,0.881868997,0.082542755,X
+1507,The Waste Lands (The Dark Tower; #3),345,506,1.023673147,0.753874799,X
+1462,The Taming of the Shrew,342,530,1.081685566,0.270640705,Y
+936,Tess of the D'Urbervilles,340,534,1.096274816,0.191380978,Y
+411,Fried Green Tomatoes at the Whistle Stop Cafe,340,518,1.063395422,0.385785253,
+952,The Alienist (Dr. Laszlo Kreizler; #1),339,550,1.132492501,0.07618631,X
+1213,The Invisible Man,339,451,0.928497078,0.311259512,Y
+1497,The Vampire Lestat (The Vampire Chronicles; #2),331,474,0.999477323,1,
+672,Murder on the Orient Express (Hercule Poirot; #10),325,479,1.028686996,0.71999796,X
+1628,Wizard and Glass (The Dark Tower; #4),319,476,1.041481153,0.588764356,X
+1632,Wonder,312,420,0.939517064,0.408638165,
+1089,The Divine Comedy,311,435,0.976206056,0.765929706,Y
+217,Children of Dune (Dune Chronicles; #3),306,495,1.129149066,0.098488125,X
+525,Insomnia,301,374,0.867156268,0.066040246,X
+158,Big Little Lies,295,375,0.887169037,0.125745967,
+114,Animal Farm / 1984,294,418,0.992314737,0.939276424,X
+447,Grave Peril (The Dresden Files; #3),294,368,0.873564198,0.089294591,
+878,Something Wicked This Way Comes (Green Town; #2),288,447,1.083336531,0.294036932,X
+810,Ringworld (Ringworld; #1),284,420,1.032195908,0.70170433,
+124,Are You There God? It's Me; Margaret,280,413,1.029490442,0.728268124,
+1214,The Island of Dr. Moreau,271,363,0.934859228,0.419468704,Y
+597,Living Dead in Dallas (Sookie Stackhouse; #2),270,367,0.948687135,0.519452633,
+1453,The Sweetness at the Bottom of the Pie (Flavia de Luce; #1),267,367,0.95930528,0.628116118,
+624,Major Pettigrew's Last Stand,263,438,1.162420037,0.054904577,
+678,Mystic River,263,395,1.048278474,0.579098596,
+1634,Wool Omnibus (Silo; #1),261,424,1.133939774,0.111446257,
+521,Inferno (The Divine Comedy #1),259,400,1.077965458,0.362503035,Y
+1227,The Language of Flowers,257,403,1.094515816,0.268006921,
+1631,Wolves of the Calla (The Dark Tower; #5),257,403,1.094515816,0.268006921,
+1076,The Dark Tower (The Dark Tower; #7),255,377,1.031885535,0.716045784,
+1567,Tuck Everlasting,254,363,0.997459067,1,
+152,Before I Go to Sleep,248,389,1.094831965,0.276918391,
+1293,The Mote in God's Eye,232,375,1.128243553,0.16063951,X
+882,Song of Susannah (The Dark Tower; #6),228,368,1.126604761,0.169396763,
+1203,The Illustrated Man,226,366,1.130400506,0.155483792,
+179,Brideshead Revisited,225,375,1.16329224,0.074406133,X
+773,Pride and Prejudice and Zombies (Pride and Prejudice and Zombies; #1),221,371,1.171720066,0.065967536,
