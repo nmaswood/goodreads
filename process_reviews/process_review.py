@@ -13,8 +13,8 @@ class filter_reviews():
         self.incoming_l = db['L_REVIEWS']
         self.incoming_c = db['C_REVIEWS']
 
-        self.outgoing_l = db['L_REVIEWS_PROCESSED']
-        self.outgoing_c = db['C_REVIEWS_PROCESSED']
+        self.outgoing_l = db['L_REVIEWS_PROCESSED_PRIME']
+        self.outgoing_c = db['C_REVIEWS_PROCESSED_PRIME']
 
     def main(self):
 
@@ -31,6 +31,8 @@ class filter_reviews():
                 elif review is None:
                     continue
                 else:
+
+
                     db_out.insert(item)
 
 class i_o():
@@ -82,7 +84,8 @@ class process():
 
             book_name, review = review_item.get('book_name'), review_item.get('review')
 
-            filter_reviewed = [x for x in review if type(x) != list and x is not None]
+            if review is None or type(review) == list:
+                continue
 
             d[book_name].append(filter_reviewed)
 
