@@ -1,6 +1,7 @@
 import csv
 from pymongo import MongoClient
 from collections import defaultdict
+import os
 
 class filter_reviews():
 
@@ -10,15 +11,15 @@ class filter_reviews():
         db = client['GOODREADS']
 
         self.incoming_l = db['L_REVIEWS']
-        self.incoming_r = db['C_REVIEWS']
+        self.incoming_c = db['C_REVIEWS']
 
         self.outgoing_l = db['L_REVIEWS_PROCESSED']
-        self.outgoing_r = db['C_REVIEWS_PROCESSED']
+        self.outgoing_c = db['C_REVIEWS_PROCESSED']
 
     def main(self):
 
         print ("Hello World!")
-        for db_in, db_out in [(self.incoming_r, self.outgoing_r)]:
+        for db_in, db_out in [(self.incoming_c, self.outgoing_c)]:
 
             for item in db_in.find(no_cursor_timeout = True):
 
@@ -31,9 +32,6 @@ class filter_reviews():
                     continue
                 else:
                     db_out.insert(item)
-
-run = filter_reviews()
-run.main()
 
 class i_o():
 
@@ -65,26 +63,52 @@ class process():
         db = client['GOODREADS']
 
         self.incoming_l = db['L_REVIEWS_PROCESSED']
-        self.incoming_r = db['R_REVIEWS_PROCESSED']
+        self.incoming_c = db['C_REVIEWS_PROCESSED']
 
-    def reviews_per_book(self, category):
+    def reviews_per_book(self, category, neither = False):
 
-        db = {'L' : self.incoming_l, 'R' : self.incoming_r}
-
-        #for review_item in db.find(no_cursor_timeout = True):
+        db = {'L' : self.incoming_l, 'C' : self.incoming_c}[category]
 
         i_o_instance = i_o()
 
-        books_names  = None
+        if neither:
+            category = 'N'
+
+        books_names  = i_o_instance.get_name(category)
+
+        d = defaultdict(list)
+
+        for review_item in db.find(no_cursor_timeout = True):
+
+            book_name, review = review_item.get('book_name'). review_item.get('review')
+
+            d[book_name].append(review)
+
+        return dict(d)
+
+    def write_to_file(self, d, folder):
+
+        i = 0
+
+        if not os.path.exists(folder): os.mkdir(folder)
+
+        for k,v in d.items():
+
+            with open(folder + '/{}|{}'.format(i,k)) as out:
+
+                out.write(' '.join(v))
+
+    def main(self):
+
+        d = self.reviews_per_book('C')
+        self.write_to_file(d, 'DISTINCTIVE_CONSVERATIVE')
+
+run = process()
+run.main()
 
 
-
-
-
-
-
-
-
-#run = i_o()
-
-#print (run.get_name('con'))
+# By book and then as invidual txt
+# Distinctive Neither by Liberals
+# Distinctive Neither by Conservative
+# Distinctive Liberal
+# Distinctive Conservative
