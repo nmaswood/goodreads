@@ -82,7 +82,9 @@ class process():
 
             book_name, review = review_item.get('book_name'), review_item.get('review')
 
-            d[book_name].append(review)
+            filter_reviewed = [x for x in review if type(x) != list and x is not None]
+
+            d[book_name].append(filter_reviewed)
 
         return dict(d)
 
