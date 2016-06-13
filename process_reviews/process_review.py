@@ -164,6 +164,8 @@ class process():
         i = 0 
 
         if not os.path.exists(folder) : os.mkdir(folder)
+
+        id_book = {}
         for k, v in d.items():
 
             id_book[i] = k
