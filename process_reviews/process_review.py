@@ -159,19 +159,44 @@ class process():
             for k,v in id_book.items():
                 out.write("{}:{}\n".format(k,v))
 
+    def write_to_file_prime(self, d, folder):
+
+        i = 0 
+
+        if not os.path.exists(folder) : os.mkdir(folder)
+        for k, v in d.items():
+
+            id_book[i] = k
+
+            k_prime = k.replace("/", "_")
+
+            for j, review in enumerate(v):
+
+                if v == ['!@#ERROR!@#']: continue
+
+                with open(folder + '/{}-{}'.format(k_prime, j), 'w') as out_prime:
+                    out_prime.write(review)
+
+        with open (folder + "_KEYS", 'w') as out:
+            for k,v in id_book.items():
+                out.write('{}:{}\n'.format(k,v))
+
+
+
+
     def main(self):
 
         d = self.reviews_per_book('C')
-        self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
+        self.write_to_file_prime(d, '50_DISTINCTIVE_CONSERVATIVE')
 
         d = self.reviews_per_book('L')
-        self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
+        self.write_to_file_prime(d, '50_DISTINCTIVE_LIBERAL')
 
         d = self.reviews_per_book('C', neither = True )
-        self.write_to_file(d, 'NEITHER_CONSERVATIVE')
+        self.write_to_file_prime(d, 'NEITHER_CONSERVATIVE')
 
         d = self.reviews_per_book('L', neither = True)
-        self.write_to_file(d, 'NEITHER_LIBERAL')
+        self.write_to_file_prime(d, 'NEITHER_LIBERAL')
 
 run = process()
 run.main()
