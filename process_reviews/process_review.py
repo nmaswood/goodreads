@@ -87,7 +87,7 @@ class process():
             if review is None or type(review) == list:
                 continue
 
-            d[book_name].append(filter_reviewed)
+            d[book_name].append(review)
 
         return dict(d)
 
