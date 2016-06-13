@@ -94,7 +94,9 @@ class process():
 
         for k,v in d.items():
 
-            with open(folder + '/{}|{}'.format(i,k), 'w') as out:
+            k_prime = k.replace("/", "_")
+
+            with open(folder + '/{}|{}'.format(i,k_prime), 'w') as out:
 
                 out.write(' '.join(v))
 
