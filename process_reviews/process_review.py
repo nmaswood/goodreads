@@ -123,7 +123,7 @@ class process():
             if d.get(book_name) is not None:
                 exit(1)
 
-            d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None']
+            d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None' and x != ['!@#ERROR!@#']]
 
         return d
 
