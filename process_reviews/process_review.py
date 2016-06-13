@@ -31,8 +31,6 @@ class filter_reviews():
                 elif review is None:
                     continue
                 else:
-
-
                     db_out.insert(item)
 
 class i_o():
@@ -121,7 +119,7 @@ class process():
 
             from_db = db.find({"book_name" : book_name})
 
-            d[book_name] += [x.get('review') for x in from_db if x.get('review') is not None]
+            d[book_name] += [x.get('review') for x in from_db if x.get('review') == 'None']
 
         return dict(d)
 
@@ -143,8 +141,11 @@ class process():
 
                 try:
                     out.write(' '.join(v))
-                except:
+                except Exception as e:
+                    print (e)
+                    print ("------")
                     print (v)
+                    print ('-------')
 
             i += 1 
 
