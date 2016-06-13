@@ -177,7 +177,11 @@ class process():
                 if v == ['!@#ERROR!@#']: continue
 
                 with open(folder + '/{}-{}'.format(k_prime, j), 'w') as out_prime:
-                    out_prime.write(review)
+
+                    try:
+                        out_prime.write(review)
+                    except:
+                        print (v)
 
         with open (folder + "_KEYS", 'w') as out:
             for k,v in id_book.items():
