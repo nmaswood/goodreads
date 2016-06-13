@@ -123,7 +123,7 @@ class process():
             if d.get(book_name) is not None:
                 exit(1)
 
-            d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None' and type(x) != list]
+            d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None']
 
         return d
 
@@ -146,11 +146,11 @@ class process():
                 try:
                     out.write(' '.join(v))
                 except Exception as e:
-                    print (v[25:27])
-                    print (e)
-                    print ("\n\n\n")
-                    print ("fuckbro")
-                    exit(1)
+                    try:
+                        out.write(' '.join([x for x in v if x != ['!@#ERROR!@#']]))
+                    except Exception as e:
+                        print ("no fucking hope")
+                        exit(1)
 
             i += 1 
 
