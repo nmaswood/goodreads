@@ -146,7 +146,7 @@ class process():
                 try:
                     out.write(' '.join(v))
                 except Exception as e:
-                    print (v)
+                    print (v[25:27])
                     print (e)
                     print ("\n\n\n")
                     print ("fuckbro")
