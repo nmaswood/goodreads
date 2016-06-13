@@ -186,6 +186,8 @@ class process():
                         else:
                             for k, x in enumerate(v):
                                 with open(folder + '/{}-{}-{}'.format(k_prime, j, k), 'w') as out_prime_prime:
+                                    if x == [] or x == ['!@#ERROR!@#']: continue
+                                    
                                     out_prime_prime.write(x)
 
         with open (folder + "_KEYS", 'w') as out:
