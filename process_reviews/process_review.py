@@ -119,7 +119,7 @@ class process():
 
             from_db = db.find({"book_name" : book_name})
 
-            print (from_db)
+            print (list(from_db))
 
 
             d[book_name] += [x.get('review') for x in from_db if x.get('review') != 'None' and type(x) == str]
