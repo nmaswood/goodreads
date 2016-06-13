@@ -109,7 +109,7 @@ class process():
         i_o_instance = i_o()
 
         if neither:
-            book_names = i_o_instance.get_neutrals
+            book_names = i_o_instance.get_neutrals()
         elif category == 'L':
             book_names = i_o_instance.get_top_50_l()
         else:
