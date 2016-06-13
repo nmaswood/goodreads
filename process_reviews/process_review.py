@@ -116,7 +116,7 @@ class process():
 
         with open(folder + '_KEYS', 'w') as out:
 
-            for k,v in id_book:
+            for k,v in id_book.items():
                 outfile.write("{}:{}\n".format(k,v))
 
     def main(self):
