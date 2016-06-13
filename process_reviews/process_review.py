@@ -121,14 +121,11 @@ class process():
             from_db = db.find({"book_name" : book_name})
 
             if d.get(book_name) is not None:
-                print ("THE FUCK?")
                 exit(1)
 
             d[book_name] = [x.get('review') for x in from_db if x.get('review') != 'None']
 
-            print (d[book_name])
-
-        return dict(d)
+        return d
 
     def write_to_file(self, d, folder):
 
@@ -147,13 +144,12 @@ class process():
             with open(folder + '/{}'.format(i), 'w') as out:
 
                 try:
-                    print (v)
                     out.write(' '.join(v))
                 except Exception as e:
                     print (e)
-                    print ("------")
-                    print (v)
-                    print ('-------')
+                    print ("\n\n\n")
+                    print ("fuckbro")
+                    exit(1)
 
             i += 1 
 
@@ -167,14 +163,14 @@ class process():
         d = self.reviews_per_book('C')
         self.write_to_file(d, '50_DISTINCTIVE_CONSERVATIVE')
 
-        #d = self.reviews_per_book('L')
-        #self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
+        d = self.reviews_per_book('L')
+        self.write_to_file(d, '50_DISTINCTIVE_LIBERAL')
 
-        #d = self.reviews_per_book('C', neither = True )
-        #self.write_to_file(d, 'NEITHER_CONSERVATIVE')
+        d = self.reviews_per_book('C', neither = True )
+        self.write_to_file(d, 'NEITHER_CONSERVATIVE')
 
-        #d = self.reviews_per_book('L', neither = True)
-        #self.write_to_file(d, 'NEITHER_LIBERAL')
+        d = self.reviews_per_book('L', neither = True)
+        self.write_to_file(d, 'NEITHER_LIBERAL')
 
 run = process()
 run.main()
