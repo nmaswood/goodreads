@@ -103,6 +103,8 @@ class process():
             with open(folder + '/{}'.format(i), 'w') as out:
 
                 out.write(' '.join(v))
+                
+            i += 1 
 
         with open(folder + '_KEYS', 'w') as out:
 
